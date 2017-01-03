@@ -1,24 +1,13 @@
-# README
+# Reci-Please
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Production Site](https://reci-please.herokuapp.com)
 
-Things you may want to cover:
+A meal-order service optimized for your busy schedule and tight budget. Have delicious, healthy meals sent straight to your house with no waste. Order exactly what you need with our custom ingredient ordering feature. Everything you need and nothing more!
 
-* Ruby version
+## Possible Extensions
+Possible extensions include recipe reviews, search function for recipes, and a form to enter ingredients you have in the house to receive a list of recipes you can make with them.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Project Manager 
+Amy Kinter
+#### Project Members
+Mike Schutte, Kyle Heppenstall, Annie Wolff

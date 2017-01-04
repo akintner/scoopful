@@ -7,16 +7,16 @@ RSpec.describe Category, type: :model do
   end
 
   it "makes pretty params" do
-    category = create(:category, title: "1 Title")
+    category = create(:category, title: '1 Title')
     expect(category.to_param).to eq("1-title")
   end
 
   it "finds by parameterized name" do
-    category = create(:category, title: "1 Title")
+    category = create(:category, title: '1 Title')
     expect(Category.find_by_param(category.to_param).title).to eq(category.title)
   end
 
   it "formats titles correctly" do
-    expect(Category.format("3-title")).to eq("3 Title")
+    expect(Category.format('3-title')).to eq('3 Title')
   end
 end

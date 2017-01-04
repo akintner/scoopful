@@ -1,14 +1,3 @@
-=begin 
-As a visitor
-When I visit any page with an item on it
-I should see a link or button for "Add to Cart"
-When I click "Add to cart" for that item
-And I click a link or button to view cart
-And my current path should be "/cart"
-And I should see a small image, title, description and price for the item I just added
-And there should be a "total" price for the cart that should be the sum of all items in the cart
-=end
-
 require 'rails_helper'
 
 RSpec.feature do
@@ -19,10 +8,11 @@ RSpec.feature do
   end
 
   context "visitor" do
-    scenario "adds an item to their cart" do
+    scenario "adds an item to their cart from the items index page" do
       visit items_path
 
       click_button("Add to Cart", match: :first) 
+      expect(current_path).to eq items_path
 
       click_on "View Cart"
 
@@ -33,6 +23,26 @@ RSpec.feature do
       expect(page).to have_css "img[src=\"#{@item1.image_url}\"]"
 
       expect(page).to have_content "Total Price: #{@item1.price_per_unit}"
+    end
+
+    scenario "adds an item to their cart from a category page" do
+      category = create(:category_with_items)
+      item = category.items.first
+      
+      visit category_path(category.title)
+
+      click_button("Add to Cart", match: :first) 
+      expect(current_path).to eq category_path(category.title)
+
+      click_on "View Cart"
+
+      expect(current_path).to eq cart_path
+      expect(page).to have_content item.name
+      expect(page).to have_content item.description
+      expect(page).to have_content item.price_per_unit
+      expect(page).to have_css "img[src=\"#{item.image_url}\"]"
+
+      expect(page).to have_content "Total Price: #{item.price_per_unit}"
     end
   end
 end

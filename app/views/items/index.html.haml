@@ -1,21 +1,23 @@
 %section.items-index-container
   - @categories.each do |category|
-  %article.category-header
-    %h1 = category.title
-  %article.items-container
-    - category.items.each do |item|
-      %section.item-card
-        %article.item-card-image
-          %img{'src' => item.image_url, 'alt' => item.name}
-        %article.item-info
-          %aside.item-title 
-            %h3 item.name
-          %aside.item-price = item.price_per_unit
-          %aside.item-quantity 
-            = form_tag :cart do
-                = label_tag :quantity
-                = number_field_tag :quanity 
-        %article.item-description
-          %p = item.description
-        %article.item-card-button
-          %button "Add to Cart"
+    %article.category-header
+      %h1 
+        = category.title
+    %article.items-container
+      - category.items.each do |item|
+        %section.item-card
+          %article.item-card-image
+            %img{'src' => item.image_url, 'alt' => item.name}
+          %article.item-info
+            %aside.item-title 
+              %h3 
+                = item.name
+            %aside.item-price 
+              = item.price_per_unit
+            %aside.item-quantity 
+              = number_field_tag :quantity 
+          %article.item-description
+            %p
+              = item.description
+          %article.item-card-button
+            %button "Add to Cart"

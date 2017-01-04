@@ -220,6 +220,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   haml-rails (~> 0.9)
+  haml
   jbuilder (~> 2.5)
   jquery-rails
   launchy

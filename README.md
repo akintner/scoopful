@@ -1,11 +1,13 @@
 # Reci-Please
 
-[Production Site](https://reci-please.herokuapp.com)
+[Production Site](https://scoopful.herokuapp.com)
 
-A meal-order service optimized for your busy schedule and tight budget. Have delicious, healthy meals sent straight to your house with no waste. Order exactly what you need with our custom ingredient ordering feature. Everything you need and nothing more!
+Scoops to Stoop. Bringing the bulk aisle right to your front step. 
+
+Eliminate food waste by ordering as much or as little as you need of an ingredient. 
 
 ## Possible Extensions
-Possible extensions include recipe reviews, search function for recipes, and a form to enter ingredients you have in the house to receive a list of recipes you can make with them.
+Show recipies by items ordered or order all items for a reciepe. Multiple units, such as by volume or handful. Change currency of order. 
 
 #### Project Manager 
 Amy Kinter

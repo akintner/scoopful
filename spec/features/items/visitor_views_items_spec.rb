@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe do
   context "visitor" do
     scenario "sees all items" do
-      items = create_list(:item, 2)
+      categories = create_list(:category_with_items, 4)
+      items = categories.flat_map(&:items)
 
       visit items_path
 

@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :category do
     sequence :title do |n|
-      "#{n}-title"
+      "#{n} Title"
     end
 
     factory :category_with_items do

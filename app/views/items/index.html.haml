@@ -1,7 +1,7 @@
 %section.items-index-container
   - @categories.each do |category|
     %article.category-header
-      %h1 
+      %h1
         = category.title
     %article.items-container
       - category.items.each do |item|
@@ -9,13 +9,13 @@
           %article.item-card-image
             %img{'src' => item.image_url, 'alt' => item.name}
           %article.item-info
-            %aside.item-title 
-              %h3 
+            %aside.item-title
+              %h3
                 = item.name
-            %aside.item-price 
+            %aside.item-price
               = item.price_per_unit
-            %aside.item-quantity 
-              = number_field_tag :quantity 
+            %aside.item-quantity
+              = number_field_tag :quantity
           %article.item-description
             %p
               = item.description

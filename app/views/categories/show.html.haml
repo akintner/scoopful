@@ -5,4 +5,5 @@
   %p= item.description
   %p= item.price_per_unit
   %img{'src' => item.image_url, 'alt' => item.name }
+  = button_to "Add to Cart", carts_path(item_id: item.id)
   

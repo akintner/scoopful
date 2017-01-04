@@ -6,9 +6,9 @@ RSpec.feature "When a visitor goes to a category index" do
     categories = create_list(:category_with_items, 2)
     
     categories.each do |category|
-      visit "/#{category.title}"
+      visit category_path(category)
     
-      expect(current_path).to eq("/#{category.title}")
+      expect(current_path).to eq("/#{category.to_param}")
       expect(page).to have_content(category.title)
       category.items.each do |item|
         expect(page).to have_content(item.name)

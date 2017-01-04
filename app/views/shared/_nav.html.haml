@@ -11,21 +11,14 @@
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.navbar-right
       %li
-        %a{href: "#"} Link
+        %a{href: "#"} View Cart
       %li.dropdown
         %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
           Categories
           %b.caret
         %ul.dropdown-menu
-          -Categories.all.each do |category|
-          %li= category.title
-            %a{href: }
-          %li
-            %a{href: "#"} Action
-          %li
-            %a{href: "#"} Another action
-          %li
-            %a{href: "#"} Something else here
-          %li
-            %a{href: "#"} Separated link
+          - Category.all.each do |category|
+            %li
+              %a{href: category_path(category)}
+                = category.title
   / /.navbar-collapse

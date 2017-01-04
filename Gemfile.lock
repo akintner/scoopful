@@ -74,6 +74,8 @@ GEM
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     i18n (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -202,6 +204,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   faker
+  haml
   jbuilder (~> 2.5)
   jquery-rails
   launchy

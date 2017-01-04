@@ -1,1 +1,8 @@
 %h1= @category.title
+
+- @category.items.each do |item|
+  %h2= item.name
+  %p= item.description
+  %p= item.price_per_weight
+  %img{'src' => item.image_url, 'alt' => item.name }
+  

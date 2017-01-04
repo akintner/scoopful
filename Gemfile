@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.1'
 # Use postgres as the database for Active Record
 gem 'pg'
+gem 'haml'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -29,7 +30,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

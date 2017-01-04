@@ -3,7 +3,7 @@ class Category < ApplicationRecord
   has_many :items
 
   def to_param
-    "#{title.parameterize}"
+    title.parameterize.to_s
   end
 
   def self.find_by_param(input)
@@ -11,7 +11,6 @@ class Category < ApplicationRecord
   end
 
   def self.format(input)
-    input = input.gsub("-", " ").split.map {|word| word.capitalize}.join(" ")
-    
+    input.gsub("-", " ").split.map {|word| word.capitalize}.join(" ")
   end
 end

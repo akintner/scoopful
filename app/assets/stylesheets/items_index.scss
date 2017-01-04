@@ -30,6 +30,11 @@
       .item-title {
         width: 49%;
       }
+      .item-quantity input {
+        width: 24%;
+        float: right;
+        border: 1px solid black;
+      }
     }
     .item-description {
       margin: 10px;

@@ -1,17 +1,21 @@
 %section.items-index-container
+  - @categories.each do |category|
   %article.category-header
-    %h1 Fruit
+    %h1 = category.title
   %article.items-container
-    - 8.times do
+    - category.items.each do |item|
       %section.item-card
         %article.item-card-image
-          = image_tag 'https://images.unsplash.com/photo-1474193557037-f19b7f547a44'
+          %img{'src' => item.image_url, 'alt' => item.name}
         %article.item-info
           %aside.item-title 
-            %h3 Orange
-          %aside.item-price 9.99
-          %aside.item-quantity 2
+            %h3 item.name
+          %aside.item-price = item.price_per_unit
+          %aside.item-quantity 
+            = form_tag :cart do
+                = label_tag :quantity
+                = number_field_tag :quanity 
         %article.item-description
-          Succulents hoodie pour-over, hella seitan before they sold out cold-pressed. Air plant succulents everyday carry brunch. Food truck selvage vinyl, blog ethical locavore echo park. Mumblecore four loko poke, actually pinterest before they sold out pok pok austin kombucha coloring book iceland blog cardigan. Copper mug fixie jean shorts activated charcoal humblebrag, actually schlitz. Yr fashion axe synth literally, ugh iPhone fixie. Waistcoat fashion axe ethical, church-key normcore irony roof party echo park woke keytar occupy franzen bicycle rights.
+          %p = item.description
         %article.item-card-button
           %button "Add to Cart"

@@ -21,7 +21,8 @@ RSpec.feature do
 
       click_on 'Create Account'
 
-      fill_in :name, with: 'Arya'
+      fill_in :first_name, with: 'Arya'
+      fill_in :last_name, with: 'Stark'
       fill_in :email, with: 'agirl@hasnoname.com'
       fill_in :password, with: 'password'
       fill_in :password_confirmation, with: 'password'
@@ -30,6 +31,7 @@ RSpec.feature do
       expect(current_path).to eq dashboard_path
       expect(page).to have_content 'Logged in as Arya'
       expect(page).to have_content 'Arya'
+      expect(page).to have_content 'Stark'
       expect(page).to have_content 'agirl@hasnoname.com'
       expect(page).to_not have_link 'Login'
       expect(page).to have_link 'Logout'

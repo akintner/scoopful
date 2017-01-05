@@ -16,9 +16,9 @@
     width: 100%;
   }
   .item-card {
+    border-radius: 5px;
     margin: 10px auto;
     padding: 10px;
-    border-radius: 5px;
     .item-card-image {
       text-align: center;
       img {
@@ -26,11 +26,11 @@
       }
     }
     .item-info {
-      margin: 10px;
+      align-items: center;
       display: inline-flex;
       flex-flow: row nowrap;
       justify-content: space-between;
-      align-items: center;
+      margin: 10px;
       .item-title {
         order: 1;
         width: 33%;
@@ -39,30 +39,30 @@
         order: 3;
         width: 10%;
         input {
-          width: 100%;
           border: 1px solid $black;
+          width: 100%;
         }
       }
       .item-price {
+        font-size: 90%;
         order: 2;
         width: 30%;
-        font-size: 90%;
       }
     }
     .item-description {
       margin: 10px;
     }
     .item-card-button {
-      text-align: center;
       margin: 0 auto;
+      text-align: center;
       form input[type=submit] {
-        padding: 10px 0;
-        margin-bottom: 10px;
-        width: 95%;
+        background: $lightbrown;
         border: 1px transparent;
         border-radius: 5px;
-        background: $lightbrown;
         color: $black;
+        margin-bottom: 10px;
+        padding: 10px 0;
+        width: 95%;
       }
       form input[type=submit]:hover {
         background: $gray;
@@ -74,10 +74,10 @@
       font-size: 50px;
     }
     .items-container {
-      margin: 20px auto;
       display: flex;
-      justify-content: space-around;
       flex-flow: row wrap;
+      justify-content: space-around;
+      margin: 20px auto;
       .item-card-button {
         width: 33%;
       }

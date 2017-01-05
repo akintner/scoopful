@@ -20,7 +20,7 @@ RSpec.feature do
       expect(page).to have_link @item1.name, items_path 
       expect(page).to_not have_content @item1.description
       expect(page).to_not have_content @item1.price_per_unit
-      expect(page).to have_content 'Total Price: 0'
+      expect(page).to have_content 'Total Price: $0.0'
     end
 
     scenario 'deletes multiple items from cart' do
@@ -33,7 +33,7 @@ RSpec.feature do
 
       click_on 'Remove'
 
-      expect(page).to have_content 'Total Price: 0'
+      expect(page).to have_content 'Total Price: $0.0'
     end
 
     scenario 'deletes an item that clicks to go back to it' do

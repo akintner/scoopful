@@ -11,7 +11,7 @@ RSpec.feature do
     scenario 'adds an item to their cart from the items index page' do
       visit items_path
 
-      click_button('Add to Cart', match: :first) 
+      click_button('Add to Cart', match: :first)
       expect(current_path).to eq items_path
 
       click_on 'View Cart'

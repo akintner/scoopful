@@ -2,7 +2,7 @@ class Cart
   attr_reader :contents
 
   def initialize(session_cart)
-    @contents = session_cart || {}
+    @contents = session_cart ||= {}
   end
 
   def add_item(item_id, quantity = 1)
@@ -29,5 +29,9 @@ class Cart
 
   def remove(item_id)
     @contents.delete(item_id.to_s)
+  end
+
+  def subtotal_of(item_id)
+    (Item.find(item_id).price_per_unit * contents[item_id.to_s]).round(2)
   end
 end

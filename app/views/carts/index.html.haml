@@ -1,12 +1,17 @@
 .cart-container
+  %h3 Items in Cart:
   %ul.cart-list
-  - @items.each do |item|
-    %li.cart-item
-      %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
-      %section.info
-        %h2= item.name
-        %p= item.description
-        %p= "#{item.price_per_unit} / lb"
-    %hr
-
-  = "Total Price: #{@cart.total_price} "
+    - @items.each do |item|
+      %li.cart-item
+        %section.quantity
+          = "Quantity: #{@cart.count_of(item.id)}"
+        .img-container
+          %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
+        %section.info
+          %h2= item.name
+          %p= item.description
+          %p= "#{item.price_per_unit} / lb"
+        = button_to "Remove", carts_path(item_id: item.id)
+      %hr
+  %section.cart_total
+    = "Total Price: #{@cart.total_price} "

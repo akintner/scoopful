@@ -11,6 +11,6 @@ class Category < ApplicationRecord
   end
 
   def self.format(input)
-    input.gsub('-', ' ').split.map {|word| word.capitalize}.join(' ')
+    input.tr('-', ' ').split.map(&:capitalize).join(' ')
   end
 end

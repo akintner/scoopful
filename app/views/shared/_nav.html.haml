@@ -12,12 +12,14 @@
     %ul.nav.navbar-nav.navbar-right
       %li
         %a{ href: "#" } View Cart
+      %li
+        %a{ href: "#" } Login
       %li.dropdown
         %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
           Categories
           %b.caret
         %ul.dropdown-menu
-          - Category.all.each do |category|
+          - categories.each do |category|
             %li
               %a{ href: category_path(category) }
                 = category.title

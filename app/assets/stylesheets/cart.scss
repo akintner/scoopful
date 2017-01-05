@@ -23,7 +23,7 @@
       .info {
         margin: 20px 0;
         width: 50%;
-        float: right;
+        text-align: right;
       }
       input {
         font-size: 12px;
@@ -37,32 +37,14 @@
     float: right;
   }
   @media (min-width: 768px) {
-    h1 {
-      font-size: 50px;
+    h2 {
+      font-size: 25px;
+    }
+    h3 {
+      font-size: 20px;
     }
     p {
-      font-size: 20px;
+      font-size: 15px;
     }
   }
 }
-
-@media (min-width: 768px) {
-    h1 {
-      font-size: 50px;
-    }
-    .items-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-around;
-      flex-flow: row wrap;
-      .item-card-button {
-        width: 33%;
-      }
-      .item-card {
-        width: 30%;
-        img {
-          max-height: 500px;
-        }
-      }
-    }
-  }

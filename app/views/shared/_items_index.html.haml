@@ -4,7 +4,7 @@
       = category.title
   %article.items-container
     - category.items.each do |item|
-      %section.item-card{:id => item.name}
+      %section.item-card{:id => item.name.tr(' ', '-')}
         %article.item-card-image
           %img{'src' => item.image_url, 'alt' => item.name}
         %article.item-info

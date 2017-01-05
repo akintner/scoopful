@@ -12,7 +12,7 @@
             %h3
               = item.name
           %aside.item-price
-            = "#{number_to_currency(item.price_per_unit)} / lb"
+            #{number_to_currency(item.price_per_unit)} / lb
           %aside.item-quantity
             = number_field_tag :quantity
         %article.item-description

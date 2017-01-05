@@ -8,9 +8,9 @@
         %section.info
           %h2= item.name
           %p= item.description
-          %p= "$#{item.price_per_unit} / lb"
+          %p #{number_to_currency(item.price_per_unit)} / lb
           %p= "Quantity: #{@cart.count_of(item.id)}"
         = button_to "Remove", carts_path(item_id: item.id), method: :delete
       %hr
   %section.cart-total
-    %h3= "Total Price: $#{@cart.total_price}"
+    %h3= "Total Price: #{number_to_currency(@cart.total_price)}"

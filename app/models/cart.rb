@@ -24,6 +24,6 @@ class Cart
   end
 
   def total_price
-    items.sum(:price_per_unit)
+    items.map { |item| item.price_per_unit * contents[item.id.to_s] }.sum
   end
 end

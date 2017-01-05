@@ -50,8 +50,9 @@ RSpec.describe Cart, type: :model do
 
   it "calculates the total price of all items" do
     @items.each { |item| @cart.add_item(item.id) }
+    @cart.add_item(@items.first.id)
 
-    total = @items.map(&:price_per_unit).sum.round(2)
+    total = @items.map(&:price_per_unit).sum.round(2) + @items.first.price_per_unit
     expect(@cart.total_price).to eq total
   end
 end

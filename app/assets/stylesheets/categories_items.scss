@@ -16,6 +16,9 @@
     width: 100%;
   }
   .item-card {
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
     .item-card-image {
       text-align: center;
       img {
@@ -24,20 +27,26 @@
     }
     .item-info {
       margin: 10px;
-      aside {
-        display: inline-block;
-        width: 24%;
-      }
+      display: inline-flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
       .item-title {
-        width: 44%;
+        order: 1;
+        width: 33%;
       }
-      .item-quantity input {
-        width: 44%;
-        float: right;
-        border: 1px solid $black;
+      .item-quantity {
+        order: 3;
+        width: 10%;
+        input {
+          width: 100%;
+          border: 1px solid $black;
+        }
       }
       .item-price {
-        width: 24%;
+        order: 2;
+        width: 30%;
+        font-size: 90%;
       }
     }
     .item-description {
@@ -45,13 +54,18 @@
     }
     .item-card-button {
       text-align: center;
-      button {
+      margin: 0 auto;
+      form input[type=submit] {
+        padding: 10px 0;
         margin-bottom: 10px;
         width: 95%;
-        background: $lightbrown;
-        color: $black;
         border: 1px transparent;
         border-radius: 5px;
+        background: $lightbrown;
+        color: $black;
+      }
+      form input[type=submit]:hover {
+        background: $gray;
       }
     }
   }
@@ -60,7 +74,7 @@
       font-size: 50px;
     }
     .items-container {
-      margin-top: 20px;
+      margin: 20px auto;
       display: flex;
       justify-content: space-around;
       flex-flow: row wrap;
@@ -68,6 +82,7 @@
         width: 33%;
       }
       .item-card {
+        border: 1px dotted $black;
         width: 30%;
         img {
           max-height: 500px;

@@ -3,17 +3,18 @@
   %ul.cart-list
     - @items.each do |item|
       %li.cart-item
-        = form_tag :carts, method: :post do
-          = hidden_field_tag :item_id, item.id
-          .img-container
-            %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
-          %section.info
-            %h2= item.name
-            %p= item.description
-            %p #{number_to_currency(item.price_per_unit)} / lb
-            %p= label_tag :quantity, 'Quantity:'
-            %p= number_field_tag :quantity, @cart.count_of(item.id)
-            %p= "Subtotal: #{number_to_currency(@cart.subtotal_of(item.id))}"
+        .img-container
+          %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
+        %section.info
+          %h2= item.name
+          %p= item.description
+          %p #{number_to_currency(item.price_per_unit)} / lb
+          %p= label_tag :quantity, 'Quantity:'
+          = form_tag :carts, method: :put do
+            = hidden_field_tag :item_id, item.id
+            = number_field_tag :quantity, @cart.count_of(item.id)
+            = submit_tag "Update Quantity"
+          %p= "Subtotal: #{number_to_currency(@cart.subtotal_of(item.id))}"
           = button_to "Remove", carts_path(item_id: item.id), method: :delete
       %hr
   %section.cart-total

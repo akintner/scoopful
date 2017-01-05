@@ -43,7 +43,7 @@ RSpec.describe Cart, type: :model do
 
   it "returns an active record collection of all items" do
     @items.each { |item| @cart.add_item(item.id) }
-    
+
     expect(@cart.items.class.to_s).to eq "Item::ActiveRecord_Relation"
     expect(@cart.items.count).to eq 3
   end

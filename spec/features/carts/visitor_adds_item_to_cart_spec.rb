@@ -7,8 +7,8 @@ RSpec.feature do
     @item2 = @category.items.last
   end
 
-  context "visitor" do
-    scenario "adds an item to their cart from the items index page" do
+  context 'visitor' do
+    scenario 'adds an item to their cart from the items index page' do
       visit items_path
 
       click_button("Add to Cart", match: :first) 
@@ -28,10 +28,10 @@ RSpec.feature do
     scenario "adds an item to their cart from a category page" do
       category = create(:category_with_items)
       item = category.items.first
-      
+
       visit category_path(category.title)
 
-      click_button("Add to Cart", match: :first) 
+      click_button("Add to Cart", match: :first)
       expect(current_path).to eq category_path(category.title)
 
       click_on "View Cart"

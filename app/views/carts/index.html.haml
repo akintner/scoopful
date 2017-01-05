@@ -2,6 +2,6 @@
   = item.name
   = item.description
   = item.price_per_unit
-  %img{:src => "#{item.image_url}", :alt => "item.name"}/
+  %img{ :src => "#{ item.image_url }", :alt => "item.name" }/
 
 = "Total Price: #{@cart.total_price} "

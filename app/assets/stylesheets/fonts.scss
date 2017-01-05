@@ -8,7 +8,7 @@ sans-serif;
 
 body {
   font-family: $body;
-  color: #121314;
+  color: $black;
 }
 
 h1,
@@ -16,5 +16,5 @@ h2,
 h3,
 h4 {
   font-family: $heading;
-  color: #121314;
+  color: $black;
 }

@@ -11,7 +11,7 @@
     font-size: 20px;
   }
   .category-header {
-    background: #9EB6C7;
+    background: $gray;
     width: 100%;
   }
   .item-card {
@@ -33,7 +33,7 @@
       .item-quantity input {
         width: 44%;
         float: right;
-        border: 1px solid #121314;
+        border: 1px solid $black;
       }
       .item-price {
         width: 24%;
@@ -47,8 +47,8 @@
       button {
         margin-bottom: 10px;
         width: 95%;
-        background: #947B7A;
-        color: #121314;
+        background: $lightbrown;
+        color: $black;
         border-radius: 5px;
       }
     }

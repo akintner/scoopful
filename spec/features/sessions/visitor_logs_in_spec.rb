@@ -38,7 +38,7 @@ RSpec.feature do
 
       click_on 'Enter'
 
-      expect(page).to have_content "Email can't be blank"
+      expect(page).to have_content 'Name or password incorrect'
     end
   end
 end

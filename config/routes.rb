@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/carts', to: 'carts#destroy'
 
   get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#show'

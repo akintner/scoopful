@@ -17,7 +17,7 @@ RSpec.feature do
 
         expect(current_path).to eq dashboard_path
         expect(page).to have_content 'Logged in as Arya'
-        expect(page).to have_content "#{user.first_name} #{user.last_name}"
+        expect(page).to have_content 'Arya Stark'
         expect(page).to have_content 'agirl@hasnoname.com'
         expect(page).to_not have_link 'Login'
         expect(page).to have_link 'Logout'

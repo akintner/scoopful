@@ -30,5 +30,4 @@ class Cart
   def remove(item_id)
     @contents.delete(item_id.to_s)
   end
-
 end

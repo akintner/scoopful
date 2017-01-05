@@ -3,6 +3,6 @@
   = item.description
   = item.price_per_unit
   %img{ :src => "#{ item.image_url }", :alt => "item.name" }/
-  = button_to "Remove", cart_path(item_id: item.id), method: :delete
+  = button_to "Remove", carts_path(item_id: item.id), method: :delete
 
 = "Total Price: #{@cart.total_price} "

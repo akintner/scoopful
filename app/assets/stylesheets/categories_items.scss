@@ -16,9 +16,9 @@
     width: 100%;
   }
   .item-card {
+    border-radius: 5px;
     margin: 10px auto;
     padding: 10px;
-    border-radius: 5px;
     .item-card-image {
       text-align: center;
       img {
@@ -26,11 +26,11 @@
       }
     }
     .item-info {
-      margin: 10px;
       display: inline-flex;
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
+      margin: 10px;
       .item-title {
         order: 1;
         width: 33%;
@@ -44,9 +44,9 @@
         }
       }
       .item-price {
+        font-size: 90%;
         order: 2;
         width: 30%;
-        font-size: 90%;
       }
     }
     .item-description {

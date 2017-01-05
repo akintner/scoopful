@@ -55,4 +55,21 @@ RSpec.describe Cart, type: :model do
     total = @items.map(&:price_per_unit).sum.round(2) + @items.first.price_per_unit
     expect(@cart.total_price).to eq total
   end
+
+  it "removes a single item from cart" do
+    @cart.add_item(@items.first.id)
+
+    @cart.remove(@items.first.id)
+
+    expect(@cart.total_count).to eq 0
+  end
+
+  it "removes all items of type from cart" do
+    @cart.add_item(@items.first.id, 2)
+    @cart.add_item(@items.last.id)
+
+    @cart.remove(@items.first.id)
+
+    expect(@cart.total_count).to eq 1
+  end
 end

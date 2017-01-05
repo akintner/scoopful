@@ -14,4 +14,9 @@ class CartsController < ApplicationController
   def index
     @items = @cart.items
   end
+
+  def destroy
+    item = Item.find(params[:item_id])
+  end
+  
 end

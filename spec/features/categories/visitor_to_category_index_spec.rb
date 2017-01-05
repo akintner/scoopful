@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "When a visitor goes to a category index" do
+RSpec.feature 'When a visitor goes to a category index' do
 
-  scenario "they see all items associated with a category" do
+  scenario 'they see all items associated with a category' do
     categories = create_list(:category_with_items, 2)
     
     categories.each do |category|

@@ -22,7 +22,7 @@ RSpec.feature do
       expect(page).to have_content @item1.price_per_unit
       expect(page).to have_css "img[src=\"#{@item1.image_url}\"]"
 
-      expect(page).to have_content "Total Price: #{@item1.price_per_unit}"
+      expect(page).to have_content "Total Price: $#{@item1.price_per_unit}"
     end
 
     scenario "adds an item to their cart from a category page" do
@@ -42,7 +42,7 @@ RSpec.feature do
       expect(page).to have_content item.price_per_unit
       expect(page).to have_css "img[src=\"#{item.image_url}\"]"
 
-      expect(page).to have_content "Total Price: #{item.price_per_unit}"
+      expect(page).to have_content "Total Price: $#{item.price_per_unit}"
     end
   end
 end

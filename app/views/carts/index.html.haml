@@ -1,8 +1,17 @@
-- @items.each do |item|
-  = item.name
-  = item.description
-  = item.price_per_unit
-  %img{ :src => "#{ item.image_url }", :alt => "item.name" }/
-  = button_to "Remove", carts_path(item_id: item.id), method: :delete
-
-= "Total Price: #{@cart.total_price} "
+.cart-container
+  %h3 Items in Cart:
+  %ul.cart-list
+    - @items.each do |item|
+      %li.cart-item
+        %section.quantity
+          = "Quantity: #{@cart.count_of(item.id)}"
+        .img-container
+          %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
+        %section.info
+          %h2= item.name
+          %p= item.description
+          %p= #{item.price_per_unit} / lb
+        = button_to "Remove", carts_path(item_id: item.id), method: :delete
+      %hr
+  %section.cart-total
+    %h3= "Total Price: $#{@cart.total_price}"

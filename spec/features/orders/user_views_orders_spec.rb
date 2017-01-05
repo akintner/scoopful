@@ -7,7 +7,7 @@ RSpec.describe do
 
       visit orders_path
 
-      expect(page).to have_content "Welcome to Your Orders"
+      expect(page).to have_content 'Welcome to Your Orders'
       expect(page).to have_content order.total_cost
 
       order.items.each do |item|

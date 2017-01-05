@@ -10,7 +10,7 @@
         %section.info
           %h2= item.name
           %p= item.description
-          %p= #{item.price_per_unit} / lb
+          %p= "#{item.price_per_unit} / lb"
         = button_to "Remove", carts_path(item_id: item.id), method: :delete
       %hr
   %section.cart-total

@@ -1,11 +1,13 @@
 !!!
 %html
   %head
-    %title Reciplease
+    %title 
+      = "Scoopful" + @head_title
     <meta name="viewport" content="width=device-width, initial-scale=1">
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
     = render partial: 'shared/nav'
+    = render :partial => "shared/flash", :locals => {:flash => flash}
     = yield

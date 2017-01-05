@@ -26,4 +26,8 @@ class Cart
   def total_price
     items.map { |item| item.price_per_unit * contents[item.id.to_s] }.sum.round(2)
   end
+
+  def remove(item_id)
+    @contents.delete(item_id.to_s)
+  end
 end

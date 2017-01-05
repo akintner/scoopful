@@ -21,7 +21,7 @@ class CartsController < ApplicationController
     @cart.remove(item.id)
 
     flash[:success] = "Successfully removed
-    #{view_context.link_to(item.name , "#{items_path}##{item.name}")}
+    #{view_context.link_to(item.name, "#{items_path}##{item.name}")}
     from your cart."
 
     redirect_to cart_path

@@ -1,11 +1,12 @@
-%section.cart-container
-  %ul
+.cart-container
+  %ul.cart-list
   - @items.each do |item|
     %li.cart-item
-      %h1= item.name
-      %p= item.description
-      %p= item.price_per_unit
-      %img{ :src => "#{ item.image_url }", :alt => "item.name" :class => "img-responsive" }/
+      %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
+      %info
+        %h2= item.name
+        %p= item.description
+        %p= "#{item.price_per_unit} / lb"
     %hr
 
   = "Total Price: #{@cart.total_price} "

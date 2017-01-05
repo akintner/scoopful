@@ -1,8 +1,18 @@
-%h1= @category.title
-
-- @category.items.each do |item|
-  %h2= item.name
-  %p= item.description
-  %p= item.price_per_unit
-  %img{'src' => item.image_url, 'alt' => item.name }
+%section.categories-show-container
+  %article.category-header
+    %h1= @category.title
+  %article.categories-container
+    - @category.items.each do |item|
+      %section.item-card
+        %article.item-card-image 
+          %img{'src' => item.image_url, 'alt' => item.name }
+        %article.item-info
+          %aside.item-title
+            %h3= item.name
+          %aside.item-price
+            = item.price_per_unit
+        %article.item-description
+          %p= item.description
+        %article.item-card-button
+            %button "Add to Cart"
   

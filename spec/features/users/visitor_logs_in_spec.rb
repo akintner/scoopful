@@ -12,7 +12,7 @@ RSpec.feature do
       expect(current_path).to eq login_path
       expect(page).to have_field :email
       expect(page).to have_field :password
-      expect(page).to have_field :password_confirmation
+      expect(page).to have_button 'Enter'
       expect(page).to have_link 'Create Account'
     end
 

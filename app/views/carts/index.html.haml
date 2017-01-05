@@ -3,7 +3,7 @@
   - @items.each do |item|
     %li.cart-item
       %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
-      %info
+      %section.info
         %h2= item.name
         %p= item.description
         %p= "#{item.price_per_unit} / lb"

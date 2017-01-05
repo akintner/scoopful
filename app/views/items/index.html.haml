@@ -7,7 +7,7 @@
       - category.items.each do |item|
         %section.item-card
           %article.item-card-image
-            %img{'src' => item.image_url, 'alt' => item.name}
+            %img{'src' => item.image_url, 'alt' => item.name, 'class' => 'img-responsive'}
           %article.item-info
             %aside.item-title
               %h3

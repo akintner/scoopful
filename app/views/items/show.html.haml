@@ -1,12 +1,10 @@
-
-%h1= @item.name
-%img{:src => @item.image, :alt => @item.name }
-
-%h3= @item.description
-%p= @item.price_per_unit
-%p= @item.category.title
-
-- if @item.status == "active"
-  = button_to "Add to Cart", carts_path(item_id: @item.id)
-- else
-  = "Item Retired"
+%article.item-container
+  .item-image
+    %img{:src => @item.image, :alt => @item.name, :class => "img-responsive" }
+  .item-info
+    %h1= @item.name
+    %h3= @item.description
+    %p= format_price_per_unit(@item)
+    %p= @item.category.title
+    .item-button
+      = item_status_check(@item)

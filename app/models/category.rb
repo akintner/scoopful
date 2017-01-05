@@ -6,8 +6,8 @@ class Category < ApplicationRecord
     title.parameterize.to_s
   end
 
-  def self.find_by_param(input)
-    find_by(title: format(input))
+  def self.where_by_param(input)
+    where(title: format(input))
   end
 
   def self.format(input)

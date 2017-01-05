@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
 
   it "finds by parameterized name" do
     category = create(:category, title: '1 Title')
-    found_title = Category.find_by_param(category.to_param).title
+    found_title = Category.where_by_param(category.to_param).first.title
     expect(found_title).to eq(category.title)
   end
 

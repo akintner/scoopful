@@ -5,10 +5,10 @@ FactoryGirl.define do
       n
     end
 
-    # factory :order_with_items do
-    #   transient do
-    #     items_count 2
-    #   end
-    # end
+    factory :order_with_items do
+      transient do
+        items_count 2
+      end
+    end
   end
 end

@@ -18,14 +18,16 @@ require 'rails_helper'
 
 RSpec.feature do
   before do
-    @categories = create(:category_with_items)
-    @item = @categories.items.first
-    @item2 = @categories.items.last
+    @category = create(:category_with_items)
+    @item = @category.items.first
+    @item2 = @category.items.last
 
     visit items_path
 
-    click_button('Add to Cart', match: :first)
-    within "##{@item2.name}" do
+    within "section##{@item.name.tr(' ', '-')}" do
+      click_button('Add to Cart')
+    end
+    within "section##{@item2.name.tr(' ', '-')}" do
       click_button('Add to Cart')
     end
   end
@@ -38,15 +40,16 @@ RSpec.feature do
 
       within 'li.cart-item:nth-child(1)' do
         expect(page).to have_content @item.name
-        expect(page).to have_content 'Quantity: 1'
+        expect(find_field('Quantity').value).to eq '1'
+
         expect(page).to have_content "Subtotal: $#{@item.price_per_unit}"
         
-        fill_in 'quantity', with: 1
+        fill_in 'quantity', with: 2
         click_on 'Update Quantity'
 
         expect(current_path).to eq cart_path
         expect(page).to have_content @item.name
-        expect(page).to have_content 'Quantity: 2'
+        expect(find_field('Quantity').value).to eq '2'
         expect(page).to have_content "Subtotal: $#{@item.price_per_unit * 2}"
       end
       expect(page).to have_content "Total Price: $#{new_total}"

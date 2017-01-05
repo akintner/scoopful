@@ -38,7 +38,7 @@ class Cart
   def update_item(cart_params)
     id = cart_params['item_id'].to_s
     quantity = cart_params['quantity']
-    quantity = 0 if quantity < 0
+    quantity = 0 if quantity.to_i < 0
     contents[id] = quantity
   end
 end

@@ -11,7 +11,7 @@
     font-size: 20px;
   }
   .category-header {
-    background: rgba(100, 100, 0, .5);
+    background: #9EB6C7;
     width: 100%;
   }
   .item-card {
@@ -28,12 +28,15 @@
         width: 24%;
       }
       .item-title {
-        width: 49%;
+        width: 44%;
       }
       .item-quantity input {
-        width: 24%;
+        width: 44%;
         float: right;
-        border: 1px solid black;
+        border: 1px solid #121314;
+      }
+      .item-price {
+        width: 24%;
       }
     }
     .item-description {
@@ -44,8 +47,8 @@
       button {
         margin-bottom: 10px;
         width: 95%;
-        background: green;
-        color: white;
+        background: #947B7A;
+        color: #121314;
         border-radius: 5px;
       }
     }
@@ -59,6 +62,9 @@
       display: flex;
       justify-content: space-around;
       flex-flow: row wrap;
+      .item-card-button {
+        width: 33%;
+      }
       .item-card {
         width: 30%;
         img {

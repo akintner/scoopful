@@ -52,7 +52,7 @@ RSpec.describe Cart, type: :model do
     @items.each { |item| @cart.add_item(item.id) }
     @cart.add_item(@items.first.id)
 
-    total = @items.map(&:price_per_unit).sum.round(2) + @items.first.price_per_unit
+    total = (@items.map(&:price_per_unit).sum + @items.first.price_per_unit).round(2)
     expect(@cart.total_price).to eq total
   end
 

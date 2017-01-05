@@ -12,6 +12,7 @@ class CartsController < ApplicationController
   end
 
   def index
+    @head_title = " | Your Cart"
     @items = @cart.items
   end
 end

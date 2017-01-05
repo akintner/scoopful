@@ -17,6 +17,9 @@
   }
   .item-card {
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 10px auto;
     padding: 10px;
     .item-card-image {
@@ -55,6 +58,7 @@
     .item-card-button {
       margin: 0 auto;
       text-align: center;
+      width: 100%;
       form input[type=submit] {
         background: $lightbrown;
         border: 1px transparent;

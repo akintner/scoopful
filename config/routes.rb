@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources 'items', only: [:index]
 
-  get '/:category_name', to: 'categories#show', as: 'category'
+  resources :carts, only: [:create]
+  get '/cart', to: 'carts#index'
 
+  get '/:category_name', to: 'categories#show', as: 'category'
 end

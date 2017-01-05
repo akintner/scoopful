@@ -14,6 +14,5 @@
         %article.item-description
           %p= item.description
         %article.item-card-button
-            %button "Add to Cart"
-
+          = button_to "Add to Cart", carts_path(item_id: item.id)
   

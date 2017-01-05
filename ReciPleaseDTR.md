@@ -1,5 +1,5 @@
-# ReciPlease: 
-#### curated recipes, custom ingredients, curiously easy
+# Scoopful: 
+#### from the scoop to your stoop: brining the bulk aisle online.
 
 ## Goals for each member
 

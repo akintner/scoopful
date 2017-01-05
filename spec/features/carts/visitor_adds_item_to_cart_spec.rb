@@ -11,10 +11,10 @@ RSpec.feature do
     scenario 'adds an item to their cart from the items index page' do
       visit items_path
 
-      click_button("Add to Cart", match: :first) 
+      click_button('Add to Cart', match: :first) 
       expect(current_path).to eq items_path
 
-      click_on "View Cart"
+      click_on 'View Cart'
 
       expect(current_path).to eq cart_path
       expect(page).to have_content @item1.name
@@ -25,16 +25,16 @@ RSpec.feature do
       expect(page).to have_content "Total Price: $#{@item1.price_per_unit}"
     end
 
-    scenario "adds an item to their cart from a category page" do
+    scenario 'adds an item to their cart from a category page' do
       category = create(:category_with_items)
       item = category.items.first
 
       visit category_path(category.title)
 
-      click_button("Add to Cart", match: :first)
+      click_button('Add to Cart', match: :first)
       expect(current_path).to eq category_path(category.title)
 
-      click_on "View Cart"
+      click_on 'View Cart'
 
       expect(current_path).to eq cart_path
       expect(page).to have_content item.name

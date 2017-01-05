@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_head_title
-    @head_title = ""
+    @head_title = ''
   end
 end

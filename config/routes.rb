@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
 
-  resources :users, only: [:new]
+  resources :users, only: [:new, :create]
+  get '/dashboard', to: 'users#show'
 
   get '/:category_name', to: 'categories#show', as: 'category'
 end

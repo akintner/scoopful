@@ -18,7 +18,7 @@
     .item-card-image {
       text-align: center;
       img {
-        width: 100%;
+        width: 98%;
       }
     }
     .item-info {
@@ -49,6 +49,7 @@
         width: 95%;
         background: $lightbrown;
         color: $black;
+        border: 1px transparent;
         border-radius: 5px;
       }
     }

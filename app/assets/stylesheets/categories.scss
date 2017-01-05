@@ -11,14 +11,14 @@
     font-size: 20px;
   }
   .category-header {
-    background: rgba(79, 99, 0, .5);
+    background: $gray;
     width: 100%;
   }
   .item-card {
     .item-card-image {
       text-align: center;
       img {
-        width: 100%;
+        width: 98%;
       }
     }
     .item-info {
@@ -28,12 +28,15 @@
         width: 24%;
       }
       .item-title {
-        width: 49%;
+        width: 44%;
       }
       .item-quantity input {
         width: 24%;
         float: right;
-        border: 1px solid black;
+        border: 1px solid $black;
+      }
+      .item-price {
+        width: 24%;
       }
     }
     .item-description {
@@ -44,8 +47,9 @@
       button {
         margin-bottom: 10px;
         width: 95%;
-        background: green;
-        color: white;
+        background: $lightbrown;
+        color: $black;
+        border: 1px transparent;
         border-radius: 5px;
       }
     }
@@ -59,6 +63,9 @@
       display: flex;
       justify-content: space-around;
       flex-flow: row wrap;
+      .item-card-button {
+        width: 33%;
+      }
       .item-card {
         width: 30%;
         img {

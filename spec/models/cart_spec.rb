@@ -79,4 +79,20 @@ RSpec.describe Cart, type: :model do
 
     expect(@cart.subtotal_of(@item.id)).to eq (3 * @item.price_per_unit).round(2)
   end
+
+  it 'updates item quantities' do
+    @cart.add_item(@item.id)
+    @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => 2})
+
+    expect(@cart.contents[@item.id.to_s]).to eq 2
+  end
+
+  context 'if a negative value is passed for quantity' do
+    it 'sets quantity to zero' do
+      @cart.add_item(@item.id)
+      @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => -2})
+
+      expect(@cart.contents[@item.id.to_s]).to eq 0
+    end
+  end
 end

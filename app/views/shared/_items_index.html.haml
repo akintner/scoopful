@@ -6,17 +6,19 @@
     - category.items.each do |item|
       %section.item-card{:id => item.name.tr(' ', '-')}
         %article.item-card-image
-          %img{'src' => item.image_url, 'alt' => item.name}
+          %a{'href' => item_path(item)}
+            %img{'src' => item.image_url, 'alt' => item.name}
         %article.item-info
           %aside.item-title
             %h3
-              = item.name
+              = link_to item.name, item_path(item)
           %aside.item-price
+            = format_price_per_unit(item)
+          %aside.item-quantity
+            = number_field_tag :quantity
             #{number_to_currency(item.price_per_unit)} / lb
-          -# %aside.item-quantity
-          -#   = number_field_tag :quantity
         %article.item-description
           %p
             = item.description
         %article.item-card-button
-          = button_to "Add to Cart", carts_path(item_id: item.id)
+          = item_status_check(item)

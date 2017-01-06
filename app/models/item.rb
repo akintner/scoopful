@@ -7,4 +7,7 @@ class Item < ApplicationRecord
   validates :price_per_unit, presence: true
   validates :description, presence: true
   validates :image, presence: true
+
+  enum status: %w(active retired)
+
 end

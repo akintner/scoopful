@@ -35,8 +35,11 @@
       justify-content: space-between;
       margin: 10px;
       .item-title {
-        order: 1;
-        width: 33%;
+          order: 1;
+          width: 33%;
+        a {
+          text-decoration: none;
+        }
       }
       .item-quantity {
         order: 3;

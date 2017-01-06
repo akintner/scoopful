@@ -36,8 +36,15 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 
+  def reject
+    item = Item.find(params[:item_id])
+    flash[:sucess] = "Item has been retired"
+    redirect_to item_path(item)
+  end
+
   private
-    def cart_params
-      params.permit(:item_id, :quantity)
-    end
+
+  def cart_params
+    params.permit(:item_id, :quantity)
+  end
 end

@@ -6,5 +6,11 @@ FactoryGirl.define do
     sequence :email do |n|
       Faker::Internet.email + "-#{n}"
     end
+
+    factory :user_with_orders do
+      after(:create) do |user|
+        create_list(:order, 3, user: user)
+      end
+    end
   end
 end

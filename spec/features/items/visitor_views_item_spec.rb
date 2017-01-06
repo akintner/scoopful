@@ -35,8 +35,9 @@ RSpec.feature 'Vistor views item' do
     item = create(:item, status: :retired)
     visit item_path(item)
     
-    expect(page).to have_content 'Item Retired'
-    expect(page).to_not have_button 'Add to Cart'
+    click_button 'Item Retired'
+    expect(current_path).to eq(item_path(item))
+    expect(page).to have_content("Item has been retired")
   end
 
 end

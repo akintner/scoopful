@@ -11,7 +11,7 @@ RSpec.describe do
 
       order = @user.orders.first
       expect(page).to have_content 'Welcome to Your Past Orders'
-      expect(page).to have_content order.total_cost
+      expect(page).to have_content order.created_at
     end
   end
 end

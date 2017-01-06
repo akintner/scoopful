@@ -4,6 +4,6 @@
     %ul.order-list
       - @orders.each do |order|
         %li.order-info
-          %h4 "Order # #{order.id}, ordered at #{order.created_at}. Total cost: #{order.total_cost}"
+          %h4 "Order # #{order.id}, ordered at #{order.created_at}."
 -else
   %h3 'You must be logged in to view your orders.'

@@ -2,9 +2,6 @@ FactoryGirl.define do
 
   factory :order do
     user
-    sequence :total_cost, [11.50, 25.25, 67.99, 89.45, 55.33, 9.01].cycle do |n|
-      n
-    end
 
     factory :order_with_items do
       transient do

@@ -3,4 +3,4 @@
   %ul.order-list
     - @orders.each do |order|
       %li.order-info
-        %h4= link_to "Order # #{order.id}, ordered at #{order.created_at}.", order_path(order)
+        %h4= link_to "Order # #{order.id}, ordered at #{order.created_at}.", user_order_path(current_user, order)

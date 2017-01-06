@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def item_status_check(item)
-    if item.status == "active"
+    if item.active?
       button_to "Add to Cart", carts_path(item_id: item.id)
     else
       button_to "Item Retired", retired_carts_path(item_id: item.id)

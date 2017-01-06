@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :orders
 
+  enum role: %w(default admin)
+
   def name
     "#{first_name} #{last_name}"
   end

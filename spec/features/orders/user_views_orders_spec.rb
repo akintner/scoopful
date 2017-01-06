@@ -10,7 +10,7 @@ RSpec.describe do
       visit orders_path
 
       order = @user.orders.first
-      expect(page).to have_content 'Welcome to Your Past Orders'
+      expect(page).to have_content 'Welcome to Your Orders'
       expect(page).to have_content order.created_at
     end
   end

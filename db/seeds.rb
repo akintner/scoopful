@@ -23,6 +23,14 @@ nuts.items.create(
   image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'db', 'images', 'pistachios.png'))
 )
 
+nuts.items.create(
+  name: 'Brazil Nuts',
+  description: 'A creamy texture and sweet taste.',
+  price_per_unit: 5.99,
+  image: Rack::Test::UploadedFile.new(File.join(Rails.root, 'db', 'images', 'brazil-nuts.png')),
+  status: :retired
+)
+
 coffees.items.create(
   name: 'Colombian',
   description: 'Mild, balanced beans.',

@@ -16,6 +16,13 @@ class CartsController < ApplicationController
     @items = @cart.items
   end
 
+  def update
+    @cart.update_item(params)
+    session[:cart] = @cart.contents
+
+    redirect_to cart_path
+  end
+
   def destroy
     item = Item.find(params[:item_id])
     @cart.remove(item.id)
@@ -25,5 +32,11 @@ class CartsController < ApplicationController
     from your cart."
 
     redirect_to cart_path
+  end
+
+  def reject
+    item = Item.find(params[:item_id])
+    flash[:sucess] = "Item has been retired"
+    redirect_to item_path(item)
   end
 end

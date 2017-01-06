@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20170105224547) do
     t.string   "name"
     t.string   "description"
     t.float    "price_per_unit"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "category_id"
     t.string   "image"
+    t.integer  "status",         default: 0
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
   end
 

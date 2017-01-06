@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    # @user = User.find(params[:user_id])
-    # @orders = @user.orders
+    @order = Order.find(params[:id])
+    render file: 'public/404', layout: false unless current_user && current_user == @order.user
   end
 end

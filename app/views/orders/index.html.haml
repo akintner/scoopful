@@ -1,10 +1,8 @@
-.order-container
-  %h3 Welcome to Your Past Orders:
-  %ul.order-list
-    - @orders.each do |order|
-      %li.order-item
-        - order.items.each do |item| 
-          %h3= item.name
-          %h3= #{number_to_currency(item.price_per_unit)} / lb
-      %order.total_cost
-  %hr
+%if current_user
+  .order-container
+    %h3 Welcome to Your Past Orders:
+    %ul.order-list
+      %li.order
+        %h4= 'Order # #{@order.id}, ordered at #{@order.created_at}. Total cost: #{order.total_cost}'
+%else
+  %h4= 'You must be logged in to view your orders.'

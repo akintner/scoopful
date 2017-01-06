@@ -12,10 +12,13 @@
           %aside.item-title
             %h3
               = link_to item.name, item_path(item)
-          %aside.item-price
+          %aside.item-price<<<<<<< HEAD
             = format_price_per_unit(item)
           %aside.item-quantity
             = number_field_tag :quantity
+            #{number_to_currency(item.price_per_unit)} / lb
+          -# %aside.item-quantity
+          -#   = number_field_tag :quantity
         %article.item-description
           %p
             = item.description

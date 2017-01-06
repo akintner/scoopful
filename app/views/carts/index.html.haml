@@ -1,9 +1,11 @@
 .cart-container
-  %h3 Items in Cart:
-  - if current_user
-    = link_to('Check out Cart')
-  - else
-    = link_to('Log in or Register to Check out', new_user_path)
+  .cart-header
+    %h3 Items in Cart:
+    .checkout-link
+      - if current_user
+        = link_to('Check out Cart')
+      - else
+        = link_to('Log in or Register to Check out', new_user_path)
   
   %ul.cart-list
     - @items.each do |item|

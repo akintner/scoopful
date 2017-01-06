@@ -6,6 +6,17 @@
   p {
     font-size: 12px;
   }
+  .cart-header {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    .checkout-link {
+      font-size: 16px;
+    }
+  }
   ul {
     width: 100%;
     list-style: none;
@@ -28,7 +39,7 @@
         }
       }
       #quantity {
-        width: 35px;
+        width: 45px;
         border-radius: 5px;
         border: 1px solid #000;
       }

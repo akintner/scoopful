@@ -20,17 +20,8 @@ RSpec.feature do
       old_total = (@item.price_per_unit + @item2.price_per_unit).round(2)
       expect(page).to have_content "Total Price: $#{old_total}"
 
-      within 'li.cart-item:nth-child(1)' do
-        expect(page).to have_content @item.name
-        expect(find_field('Quantity').value).to eq '1'
-        expect(page).to have_content "Subtotal: $#{@item.price_per_unit}"
-      end
-
-      within 'li.cart-item:nth-of-type(2)' do
-        expect(page).to have_content @item2.name
-        expect(find_field('Quantity').value).to eq '1'
-        expect(page).to have_content "Subtotal: $#{@item2.price_per_unit}"
-      end
+      verify_cart_item(item: @item, list_number: 1, quantity: 1)
+      verify_cart_item(item: @item2, list_number: 2, quantity: 1)
 
       click_on 'Log in or Register to Check out'
 
@@ -41,16 +32,8 @@ RSpec.feature do
 
       expect(page).to have_content 'Check out Cart'
       expect(page).to have_content "Total Price: $#{old_total}"
-      within 'li.cart-item:nth-child(1)' do
-        expect(page).to have_content @item.name
-        expect(find_field('Quantity').value).to eq '1'
-        expect(page).to have_content "Subtotal: $#{@item.price_per_unit}"
-      end
-      within 'li.cart-item:nth-of-type(2)' do
-        expect(page).to have_content @item2.name
-        expect(find_field('Quantity').value).to eq '1'
-        expect(page).to have_content "Subtotal: $#{@item2.price_per_unit}"
-      end
+      verify_cart_item(item: @item, list_number: 1, quantity: 1)
+      verify_cart_item(item: @item2, list_number: 2, quantity: 1)
       
       click_on 'Logout'
 

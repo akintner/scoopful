@@ -12,4 +12,16 @@ module FeatureHelpers
       click_button('Add to Cart')
     end
   end
+
+  def verify_cart_item(item_info)
+    item     = item_info[:item]
+    number   = item_info[:list_number]
+    quantity = item_info[:quantity]
+
+    within "li.cart-item:nth-of-type(#{number})" do
+      expect(page).to have_content item.name
+      expect(find_field('Quantity').value).to eq "#{quantity}"
+      expect(page).to have_content "Subtotal: $#{item.price_per_unit}"
+    end
+  end
 end

@@ -24,4 +24,10 @@ module FeatureHelpers
       expect(page).to have_content "Subtotal: $#{item.price_per_unit}"
     end
   end
+
+  def login_user(user)
+    fill_in :email, with: user.email
+    fill_in :password, with: 'password'
+    click_on 'Enter'
+  end
 end

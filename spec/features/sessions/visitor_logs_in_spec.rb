@@ -20,10 +20,9 @@ RSpec.feature do
       user = create(:user)
 
       visit login_path
+      login_user(user)
 
-      fill_in :email, with: user.email
-      fill_in :password, with: 'password'
-      click_on 'Enter'
+      
 
       expect(current_path).to eq dashboard_path
       expect(page).to have_content "#{user.first_name} #{user.last_name}"

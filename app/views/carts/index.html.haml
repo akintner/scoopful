@@ -8,7 +8,7 @@
         %section.info
           %h2= item.name
           %p= item.description
-          %p format_price_per_unit(item)
+          %p= format_price_per_unit(item)
           %p= label_tag :quantity, 'Quantity:'
           = form_tag :carts, method: :put do
             = hidden_field_tag :item_id, item.id

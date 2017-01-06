@@ -2,7 +2,7 @@ class Cart
   attr_reader :contents
 
   def initialize(session_cart)
-    @contents = session_cart ||= {}
+    @contents = session_cart || {}
   end
 
   def add_item(item_id, quantity = 1)

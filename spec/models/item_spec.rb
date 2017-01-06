@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
     item = create(:item, status: :retired)
 
     expect(item.status).to eq('retired')
-    expect(item.retired?  ).to be_truthy
+    expect(item.retired?).to be_truthy
   end
 end
 

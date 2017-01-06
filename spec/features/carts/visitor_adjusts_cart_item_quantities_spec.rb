@@ -44,16 +44,16 @@ RSpec.feature do
 
         expect(page).to have_content "Subtotal: $#{@item.price_per_unit}"
         
-        fill_in 'quantity', with: 2
+        fill_in 'quantity', with: '2'
         click_on 'Update Quantity'
 
         expect(current_path).to eq cart_path
         expect(page).to have_content @item.name
         expect(find_field('Quantity').value).to eq '2'
-        expect(page).to have_content "Subtotal: $#{@item.price_per_unit * 2}"
       end
-      expect(page).to have_content "Total Price: $#{new_total}"
+      expect(page).to have_content "Subtotal: $#{@item.price_per_unit * 2}"
       new_total = (@item.price_per_unit * 2 + @item2.price_per_unit).round(2)
+      expect(page).to have_content "Total Price: $#{new_total}"
       expect(old_total).to_not eq new_total
     end
 

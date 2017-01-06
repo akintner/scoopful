@@ -10,8 +10,4 @@ class Admin::BaseController < ApplicationController
     render 'admin/dashboard'
   end
 
-  def current_admin?
-    current_user && current_user.admin?
-  end
-
 end

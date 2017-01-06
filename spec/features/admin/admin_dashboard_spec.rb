@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature do 
+RSpec.feature do
   context 'visit admin dashboard'
     context 'admin' do
       scenario 'see dashboard' do

@@ -18,18 +18,18 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "role" do
-    it "set to admin" do
+  context 'role' do
+    it 'set to admin' do
       user = create(:user, role: 1)
 
-      expect(user.role).to eq "admin"
+      expect(user.role).to eq 'admin'
       expect(user.admin?).to be_truthy
     end
 
-    it "defaults to default" do
+    it 'defaults to default' do
       user = create(:user)
 
-      expect(user.role).to eq "default"
+      expect(user.role).to eq 'default'
       expect(user.admin?).to be_falsy
     end
   end

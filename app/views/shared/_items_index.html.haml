@@ -14,9 +14,6 @@
               = link_to item.name, item_path(item)
           %aside.item-price
             = format_price_per_unit(item)
-          %aside.item-quantity
-            = number_field_tag :quantity
-            #{number_to_currency(item.price_per_unit)} / lb
         %article.item-description
           %p
             = item.description

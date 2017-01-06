@@ -31,4 +31,8 @@ module FeatureHelpers
     fill_in :password, with: 'password'
     click_on 'Enter'
   end
+
+  def expect_404
+    expect(page).to have_content "The page you were looking for doesn't exist (404)"
+  end
 end

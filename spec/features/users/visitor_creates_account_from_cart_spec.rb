@@ -8,12 +8,8 @@ RSpec.feature do
 
     visit items_path
 
-    within "section##{@item.name.tr(' ', '-')}" do
-      click_button('Add to Cart')
-    end
-    within "section##{@item2.name.tr(' ', '-')}" do
-      click_button('Add to Cart')
-    end
+    add_item_to_cart(@item)
+    add_item_to_cart(@item2)
   end
 
   context 'visitor' do

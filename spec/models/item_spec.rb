@@ -15,6 +15,20 @@ RSpec.describe Item, type: :model do
     # it { should have_many :order_items }
     # it { should have_many :orders }
   end
+
+  it 'can be created as active' do
+    item = create(:item)
+
+    expect(item.status).to eq('active')
+    expect(item.active?).to be_truthy
+  end
+
+  it 'can be created as retired' do
+    item = create(:item, status: :retired)
+
+    expect(item.status).to eq('retired')
+    expect(item.retired?  ).to be_truthy
+  end
 end
 
 

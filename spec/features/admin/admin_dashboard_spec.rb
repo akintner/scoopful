@@ -26,7 +26,6 @@ RSpec.feature do
 
   context 'visitor' do
     scenario '404' do
-
       visit admin_dashboard_path
 
       expect(page).to have_content "The page you were looking for doesn't exist (404)"

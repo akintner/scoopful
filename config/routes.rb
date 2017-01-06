@@ -19,5 +19,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#show'
 
+  namespace :admin do 
+    get '/dashboard', to: 'base#dashboard'
+  end
+
   get '/:category_name', to: 'categories#show', as: 'category'
 end

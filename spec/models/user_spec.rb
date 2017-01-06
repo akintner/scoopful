@@ -31,7 +31,6 @@ RSpec.describe User, type: :model do
 
       expect(user.role).to eq "default"
       expect(user.admin?).to be_falsy
-
     end
   end
 end

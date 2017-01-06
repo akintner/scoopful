@@ -5,14 +5,14 @@
   %article.form-fields
     = bootstrap_form_for @user do |f|
       %article.form-field
-        = f.text_field :first_name
+        = f.text_field :first_name, hide_label: true, placeholder: 'first name'
       %article.form-field
-        = f.text_field :last_name
+        = f.text_field :last_name, hide_label: true, placeholder: 'last name'
       %article.form-field
-        = f.email_field :email
+        = f.email_field :email, hide_label: true, placeholder: 'email'
       %article.form-field
-        = f.password_field :password
+        = f.password_field :password, hide_label: true, placeholder: 'password'
       %article.form-field
-        = f.password_field :password_confirmation
+        = f.password_field :password_confirmation, hide_label: true, placeholder: 'confirm password'
       %article.form-field
         = f.submit 'Submit'

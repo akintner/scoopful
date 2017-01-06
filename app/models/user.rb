@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   
   has_secure_password
+  has_many :orders
 
   def name
     "#{first_name} #{last_name}"

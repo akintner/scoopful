@@ -1,0 +1,53 @@
+.form-link {
+  padding: 4px;
+  float: right;
+  a {
+    font-size: 14px;
+  }
+}
+
+.form-container {
+
+  margin: 20px;
+  margin-top: 50px;
+
+  .form-header {
+    h3 {
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .btn-default {
+    width: 100%;
+    color: whitesmoke;
+    background-color: rgba(71, 132, 114, 0.7);
+    }
+    input[type=submit]:hover {
+      background-color: rgba(71, 132, 114, 1);
+    }
+  
+
+ @media (min-width: 768px) {
+    width: 40%;
+    height: 400px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    .form-header {
+      h3 {
+        font-size: 25px;
+        padding-bottom: 5px;
+        text-align: center;
+      }
+    }
+    .form-field {
+      padding: 5px;
+    }
+  }
+}

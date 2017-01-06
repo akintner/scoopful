@@ -10,11 +10,18 @@
       %img{ "src" => "/scoopful-logo.svg", "alt" => "logo" }
   / Collect the nav links, forms, and other content for toggling
   .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav.navbar-left
+      %li 
+        - if current_user
+          = link_to "Logged in as #{current_user.first_name}", dashboard_path
     %ul.nav.navbar-nav.navbar-right
       %li
         = link_to('View Cart', cart_path)
       %li
-        %a{ href: "#" } Login
+        - if current_user
+          = link_to 'Logout', logout_path, method: :delete
+        -else
+          = link_to 'Login', login_path
       %li.dropdown
         %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
           Categories

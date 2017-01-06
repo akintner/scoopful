@@ -8,7 +8,7 @@ module ApplicationHelper
     if item.status == "active"
       button_to "Add to Cart", carts_path(item_id: item.id)
     else
-      "Item Retired"
+      button_to "Item Retired", retired_carts_path(item_id: item.id)
     end
   end
 

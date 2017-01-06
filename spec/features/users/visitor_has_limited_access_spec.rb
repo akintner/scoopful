@@ -18,13 +18,13 @@ RSpec.feature do
     scenario 'cannot view another user\'s orders' do
       visit orders_path
 
-      expect(page).to have_content 'The page you were looking for doesn\'t exist (404)'
+      expect_404
     end
 
     scenario 'cannot view administrator dashboard' do
       visit admin_dashboard_path
 
-      expect(page).to have_content 'The page you were looking for doesn\'t exist (404)'
+      expect_404
     end
   end
 end

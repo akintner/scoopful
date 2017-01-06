@@ -20,7 +20,7 @@ module FeatureHelpers
 
     within "li.cart-item:nth-of-type(#{number})" do
       expect(page).to have_content item.name
-      expect(find_field('Quantity').value).to eq "#{quantity}"
+      expect(find_field('Quantity').value).to eq quantity.to_s
       expect(page).to have_content "Subtotal: $#{item.price_per_unit}"
     end
   end

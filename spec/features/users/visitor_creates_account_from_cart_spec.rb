@@ -34,7 +34,7 @@ RSpec.feature do
       expect(page).to have_content "Total Price: $#{old_total}"
       verify_cart_item(item: @item, list_number: 1, quantity: 1)
       verify_cart_item(item: @item2, list_number: 2, quantity: 1)
-      
+
       click_on 'Logout'
 
       expect(page).to have_link 'Login', href: login_path

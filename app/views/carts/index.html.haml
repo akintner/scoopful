@@ -9,8 +9,13 @@
           %h2= item.name
           %p= item.description
           %p format_price_per_unit(item)
-          %p= "Quantity: #{@cart.count_of(item.id)}"
-        = button_to "Remove", carts_path(item_id: item.id), method: :delete
+          %p= label_tag :quantity, 'Quantity:'
+          = form_tag :carts, method: :put do
+            = hidden_field_tag :item_id, item.id
+            = number_field_tag :quantity, @cart.count_of(item.id)
+            = submit_tag "Update"
+          %p= "Subtotal: #{number_to_currency(@cart.subtotal_of(item.id))}"
+          = button_to "Remove", carts_path(item_id: item.id), method: :delete
       %hr
   %section.cart-total
     %h3= "Total Price: #{number_to_currency(@cart.total_price)}"

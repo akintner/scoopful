@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
   before do
-    @cart = Cart.new({})
+    @cart  = Cart.new({})
     @items = create_list(:item, 3)
+    @item  = @items.first
   end
 
   it 'adds an item to its contents' do
@@ -57,20 +58,50 @@ RSpec.describe Cart, type: :model do
   end
 
   it 'removes a single item from cart' do
-    @cart.add_item(@items.first.id)
+    @cart.add_item(@item.id)
 
-    @cart.remove(@items.first.id)
+    @cart.remove(@item.id)
 
     expect(@cart.total_count).to eq 0
   end
 
   it 'removes all items of type from cart' do
-    @cart.add_item(@items.first.id, 2)
+    @cart.add_item(@item.id, 2)
     @cart.add_item(@items.last.id)
 
-    @cart.remove(@items.first.id)
+    @cart.remove(@item.id)
 
     expect(@cart.total_count).to eq 1
   end
 
+  it 'calculates subtotal of an item' do
+    @cart.add_item(@item.id, 3)
+
+    expect(@cart.subtotal_of(@item.id)).to eq (3 * @item.price_per_unit).round(2)
+  end
+
+  it 'updates item quantities' do
+    @cart.add_item(@item.id)
+    @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => 2})
+
+    expect(@cart.contents[@item.id.to_s]).to eq 2
+  end
+
+  context 'if a negative value is passed for quantity' do
+    it 'removes item from cart' do
+      @cart.add_item(@item.id)
+      @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => -2})
+
+      expect(@cart.contents[@item.id.to_s]).to be nil
+    end
+  end
+
+  context 'if zero is passed for quantity' do
+    it 'removes item from cart' do
+      @cart.add_item(@item.id)
+      @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => 0})
+
+      expect(@cart.contents[@item.id.to_s]).to be nil
+    end
+  end
 end

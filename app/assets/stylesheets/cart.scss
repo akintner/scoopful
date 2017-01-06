@@ -27,15 +27,29 @@
           margin: 10px auto;
         }
       }
+      #quantity {
+        width: 35px;
+        border-radius: 5px;
+        border: 1px solid #000;
+      }
       input {
-        font-size: 12px;
-        background-color: rgba(167, 56, 36, .8);
-        color: whitesmoke;
         padding: 5px;
         border: none;
+        font-size: 12px;
         border-radius: 5px;
       }
-      input:hover {
+      input[type=submit] {
+        color: whitesmoke;
+        background-color: rgba(71, 132, 114, 0.7);
+      }
+      input[type=submit]:hover {
+        background-color: rgba(71, 132, 114, 1);
+      }
+      .button_to input {
+        background-color: rgba(167, 56, 36, .8);
+        color: whitesmoke;
+      }
+      .button_to input:hover {
         background-color: #a73824;
       }
     }

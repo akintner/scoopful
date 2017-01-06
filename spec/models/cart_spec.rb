@@ -88,11 +88,20 @@ RSpec.describe Cart, type: :model do
   end
 
   context 'if a negative value is passed for quantity' do
-    it 'sets quantity to zero' do
+    it 'removes item from cart' do
       @cart.add_item(@item.id)
       @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => -2})
 
-      expect(@cart.contents[@item.id.to_s]).to eq 0
+      expect(@cart.contents[@item.id.to_s]).to be nil
+    end
+  end
+
+  context 'if zero is passed for quantity' do
+    it 'removes item from cart' do
+      @cart.add_item(@item.id)
+      @cart.update_item({'item_id' => "#{@item.id}", 'quantity' => 0})
+
+      expect(@cart.contents[@item.id.to_s]).to be nil
     end
   end
 end

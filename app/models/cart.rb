@@ -32,13 +32,16 @@ class Cart
   end
 
   def subtotal_of(item_id)
-    ((Item.find(item_id).price_per_unit * contents[item_id.to_s]).round(2))
+    (Item.find(item_id).price_per_unit * contents[item_id.to_s]).round(2)
   end
 
   def update_item(cart_params)
     id = cart_params['item_id'].to_s
     quantity = cart_params['quantity'].to_i
-    quantity = 0 if quantity < 0
-    contents[id] = quantity
+    if quantity <= 0
+      remove(id)
+    else
+      contents[id] = quantity
+    end
   end
 end

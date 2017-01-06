@@ -1,8 +1,6 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  before_action :cart_params, only: [:update]
-
   def create
     item = Item.find(params[:item_id])
 
@@ -19,7 +17,7 @@ class CartsController < ApplicationController
   end
 
   def update
-    @cart.update_item(cart_params)
+    @cart.update_item(params)
     session[:cart] = @cart.contents
 
     redirect_to cart_path
@@ -40,11 +38,5 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     flash[:sucess] = "Item has been retired"
     redirect_to item_path(item)
-  end
-
-  private
-
-  def cart_params
-    params.permit(:item_id, :quantity)
   end
 end

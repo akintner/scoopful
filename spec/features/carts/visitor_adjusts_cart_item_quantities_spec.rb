@@ -29,7 +29,7 @@ RSpec.feature do
         expect(page).to have_content "Subtotal: $#{@item.price_per_unit}"
         
         fill_in 'quantity', with: '2'
-        click_on 'Update Quantity'
+        click_on 'Update'
 
         expect(current_path).to eq cart_path
         expect(page).to have_content @item.name
@@ -48,7 +48,7 @@ RSpec.feature do
 
       within 'li.cart-item:nth-child(1)' do
         fill_in 'quantity', with: '4'
-        click_on 'Update Quantity'
+        click_on 'Update'
 
         expect(current_path).to eq cart_path
         expect(page).to have_content @item.name
@@ -67,15 +67,12 @@ RSpec.feature do
 
       within 'li.cart-item:nth-child(1)' do
         fill_in 'quantity', with: '0'
-        click_on 'Update Quantity'
+        click_on 'Update'
 
         expect(current_path).to eq cart_path
-        expect(page).to have_content @item.name
-        expect(find_field('Quantity').value).to eq '0'
       end
 
       new_total = (@item.price_per_unit * 0 + @item2.price_per_unit).round(2)
-      expect(page).to have_content "Subtotal: $#{@item.price_per_unit * 0}"
       expect(page).to have_content "Total Price: $#{new_total}"
       expect(old_total).to_not eq new_total
     end
@@ -94,7 +91,7 @@ RSpec.feature do
       within 'li.cart-item:nth-child(1)' do
         expect(find_field('Quantity').value).to eq '4'
         fill_in 'quantity', with: '1'
-        click_on 'Update Quantity'
+        click_on 'Update'
 
         expect(current_path).to eq cart_path
         expect(page).to have_content @item.name

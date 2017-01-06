@@ -15,13 +15,16 @@ RSpec.feature do
   end
 
   context 'visitor' do
-    xscenario 'cannot view another user\'s orders' do
+    scenario 'cannot view another user\'s orders' do
+      visit orders_path
+
+      expect(page).to have_content 'The page you were looking for doesn\'t exist (404)'
     end
 
-    xscenario 'cannot view administrator dashboard' do
-    end
+    scenario 'cannot view administrator dashboard' do
+      visit admin_dashboard_path
 
-    xscenario 'cannot make themself an admin' do
+      expect(page).to have_content 'The page you were looking for doesn\'t exist (404)'
     end
   end
 end

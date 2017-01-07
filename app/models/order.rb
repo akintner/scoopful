@@ -16,4 +16,12 @@ class Order < ApplicationRecord
   def subtotal(item)
     item_quantity(item) * orders_items.find_by(item_id: item.id).current_price_per_unit
   end
+
+  def order_item(item)
+    orders_items.find_by(item_id: item.id)
+  end
+
+  def order_item_quantity(item)
+    order_item(item).quantity
+  end
 end

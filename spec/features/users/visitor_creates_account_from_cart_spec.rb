@@ -24,7 +24,8 @@ RSpec.feature do
       verify_cart_item(item: @item2, list_number: 2, quantity: 1)
 
       click_on 'Log in or Register to Check out'
-
+      click_on 'Create Account'
+      
       fill_account_info
       click_on 'Submit'
 

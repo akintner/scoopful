@@ -1,5 +1,4 @@
 class Admin::BaseController < ApplicationController
-
   before_action :require_admin
 
   def require_admin
@@ -8,6 +7,9 @@ class Admin::BaseController < ApplicationController
 
   def dashboard
     render 'admin/dashboard'
+  end
+
+  def admin_items
   end
 
 end

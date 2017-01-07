@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources 'items', only: [:index, :show]
   post '/retired_item', to: 'items#reject', as: 'retired_item'
   
-  resources :orders, only: [:index, :show]
+  resources :orders, only: [:index, :show, :create]
 
   resources :carts, only: [:create]
   put    '/carts', to: 'carts#update'

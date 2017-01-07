@@ -4,11 +4,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_admin?
-      @order = Order.find(params[:id])
-    else
-      @order = current_user.orders.find(params[:id])
-    end
+    @order = Order.find(params[:id])
+    redirect_to dashboard_path unless verified_user?
   end
 
   def create
@@ -16,5 +13,9 @@ class OrdersController < ApplicationController
     order.checkout(@cart.contents)
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
+  end
+
+  def verified_user?
+    @order.user_id == current_user.id || current_admin?
   end
 end

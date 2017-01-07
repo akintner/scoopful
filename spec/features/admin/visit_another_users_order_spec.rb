@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Admin visits an order" do
+RSpec.feature "Visit another user's order" do
 
-  scenario "they see the order's details" do
+  scenario "admins can see all order details" do
     admin = create(:user, role: 1)
     user = create(:user_with_orders)
     order = user.orders.first
@@ -20,6 +20,24 @@ RSpec.feature "Admin visits an order" do
       expect(page).to have_content(order.order_item(item).current_price_per_unit)
       expect(page).to have_content(order.subtotal(item))
     end
+  end
+
+  scenario "visitor cannot see order details" do
+    user = create(:user_with_orders)
+    order = user.orders.first
+    visit order_path(order)
+    
+    expect(current_path).to eq(login_path)
+  end
+
+  scenario "users cannot see another user's order details" do
+    user1 = create(:user)
+    user2 = create(:user_with_orders)
+    order = user2.orders.first
+    login_user(user1)
+    visit order_path(order)
+    
+    expect(current_path).to eq(dashboard_path)
   end
 
 end

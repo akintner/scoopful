@@ -15,5 +15,4 @@ module ApplicationHelper
   def format_price_per_unit(item)
     "#{number_to_currency(item.price_per_unit)} / lb "
   end
-
 end

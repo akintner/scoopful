@@ -7,6 +7,7 @@ class Admin::BaseController < ApplicationController
   end
 
   def dashboard
+    @orders = Order.all
     render 'admin/dashboard'
   end
 

@@ -12,8 +12,8 @@ RSpec.describe Item, type: :model do
 
   context 'associations' do
     it { should belong_to :category }
-    # it { should have_many :order_items }
-    # it { should have_many :orders }
+    it { should have_many :orders_items }
+    it { should have_many :orders }
   end
 
   it 'can be created as active' do

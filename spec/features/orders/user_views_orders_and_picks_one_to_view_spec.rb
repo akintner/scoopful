@@ -11,19 +11,19 @@ RSpec.describe do
 
       expect(page).to have_content 'Welcome to Your Orders'
 
-      click_on @user.orders.first
+      click_on "Order # #{@user.orders.first.id}, ordered at #{@user.orders.first.created_at}."
 
-      expect(current_path).to eq("/user/#{@user.id}/orders/#{@user.orders.first.id}")
+      expect(current_path).to eq(user_order_path(@user, @user.orders.first))
     end
 
     scenario 'sees that order and all of its items' do
       @user = create(:user_with_orders)
-      @order = create_list(:order_with_items, 2)
+      @order = @user.orders.first
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
       visit user_order_path(@user, @order)
       
-      expect(page).to have_content @order.status
+      expect(page).to have_content @order.status.capitalize
       expect(page).to have_content @order.total_price
       expect(page).to have_content @order.created_at
       expect(page).to have_content @order.updated_at
@@ -31,7 +31,6 @@ RSpec.describe do
       @order.items.each do |item|
         expect(page).to have_content item.name
         expect(page).to have_content @order.item_quantity(item)
-        expect(page).to have_content item.price_per_unit
       end
   end
   end

@@ -1,0 +1,12 @@
+%h1= "Order # #{@order.id}"
+%h2= @order.status.capitalize
+%h2= @order.total_price
+%h2= "Placed: #{@order.created_at}"
+%h2= "Most Recent Action: #{@order.updated_at}"
+
+%table
+  %tr
+    - @order.items.each do |item|
+      %th= link_to item.name, item_path(item)
+      %td= item.price_per_unit
+      %td= @order.item_quantity(item)

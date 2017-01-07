@@ -8,7 +8,7 @@ RSpec.feature do
       expect_login_path
     end
 
-    xscenario 'cannot view /orders/:id' do #waiting on order show functionality
+    xscenario 'cannot view /orders/:id' do # waiting on order show functionality
       order = create(:order)
       visit orders_path(order)
 

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   helper_method :current_user
-  
+
   def set_cart
     @cart = Cart.new(session[:cart])
   end

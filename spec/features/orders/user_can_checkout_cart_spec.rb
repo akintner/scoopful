@@ -7,25 +7,18 @@ RSpec.feature 'Cart Checkout' do
     @item1 = @category.items.first
     @item2 = @category.items.last
     @user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
-  scenario 'vistor can checkout by logging in' do
+  scenario 'user can checkout when logged in' do
     visit items_path
-    click_on 'Add to Cart', match: :first
+    add_item_to_cart(@item1)
     click_on 'View Cart'
-    click_on 'Login or Register to Checkout'
-    fill_in :email, with: user.email
-    fill_in :password, with: 'password'
-    click_on 'Enter'
-    expect(current_path).to eq(cart_path)
-    click_on 'Checkout'
+    click_on 'Check out Cart'
 
-    expect(current_path).to eq(order_path(user, user.orders.last))
+    expect(current_path).to eq(orders_path)
     expect(page).to have_content("Order was successfully placed")
     expect(page).to have_content("Order # #{user.orders.last.id}")
-    within "table" do
-      
-    end
   end
 
 end

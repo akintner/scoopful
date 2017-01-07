@@ -3,7 +3,7 @@
     %h3 Items in Cart:
     .checkout-link
       - if current_user
-        = link_to('Check out Cart')
+        = link_to('Check out Cart', orders_path, :method => :post)
       - else
         = link_to('Log in or Register to Check out', new_user_path)
 

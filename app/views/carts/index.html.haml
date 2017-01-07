@@ -5,7 +5,7 @@
       - if current_user
         = link_to('Check out Cart')
       - else
-        = link_to('Log in or Register to Check out', new_user_path)
+        = link_to('Log in or Register to Check out', login_path)
 
   %ul.cart-list
     - @items.each do |item|

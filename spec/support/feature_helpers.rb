@@ -35,4 +35,8 @@ module FeatureHelpers
   def expect_404
     expect(page).to have_content "The page you were looking for doesn't exist (404)"
   end
+
+  def expect_login_path
+    expect(current_path).to eq login_path
+  end
 end

@@ -1,9 +1,3 @@
-=begin 
-As a logged in Admin
-I can modify my account data
-But I cannot modify any other user's account data
-=end
-
 require 'rails_helper'
 
 RSpec.feature do
@@ -29,14 +23,17 @@ RSpec.feature do
       click_on 'Update'
 
       @admin.reload
-      expect(@admin.password).to eq 
+      expect(@admin.password).to eq 'password'
       expect(page).to have_content 'Mike'
       expect(page).to have_content 'Schutte'
       expect(page).to have_content 'mike@schutte.com'
-      expect(page).to have_content 'Profile updated!'
+      expect(page).to have_content 'Profile Updated!'
     end
 
     scenario 'cannot modify another user\'s data' do
+      visit edit_user_path(@user)
+
+      expect(page).to have_content 'You cannot modify another user\'s profile.'
     end
   end
 end

@@ -39,5 +39,4 @@ module FeatureHelpers
   def expect_login_path
     expect(current_path).to eq login_path
   end
-
 end

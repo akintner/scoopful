@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  skip_before_action :require_login
+
   def index
     @head_title = ' | All Items'
     @categories = Category.all
@@ -9,4 +11,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def reject
+    item = Item.find(params[:item_id])
+    flash[:danger] = "Item has been retired"
+    redirect_to item_path(item)
+  end
 end

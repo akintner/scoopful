@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
+  skip_before_action :require_login
+
   def create
     item = Item.find(params[:item_id])
 
@@ -34,9 +36,4 @@ class CartsController < ApplicationController
     redirect_to cart_path
   end
 
-  def reject
-    item = Item.find(params[:item_id])
-    flash[:sucess] = "Item has been retired"
-    redirect_to item_path(item)
-  end
 end

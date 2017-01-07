@@ -16,13 +16,7 @@ RSpec.feature do
 
       click_on 'View Cart'
 
-      expect(current_path).to eq cart_path
-      expect(page).to have_content @item1.name
-      expect(page).to have_content @item1.description
-      expect(page).to have_content @item1.price_per_unit
-      expect(page).to have_css "img[src=\"#{@item1.image_url}\"]"
-
-      expect(page).to have_content "Total Price: $#{@item1.price_per_unit}"
+      verify_cart_addition(@item1)
     end
 
     scenario 'adds an item to their cart from a category page' do
@@ -36,13 +30,7 @@ RSpec.feature do
 
       click_on 'View Cart'
 
-      expect(current_path).to eq cart_path
-      expect(page).to have_content item.name
-      expect(page).to have_content item.description
-      expect(page).to have_content item.price_per_unit
-      expect(page).to have_css "img[src=\"#{item.image_url}\"]"
-
-      expect(page).to have_content "Total Price: $#{item.price_per_unit}"
+      verify_cart_addition(item)      
     end
   end
 end

@@ -31,6 +31,10 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.by_status(status)
+    Order.send(status) rescue Order.all
+  end
+
   def verified_user?(current_user)
     user_id == current_user.id || current_user.admin?
   end

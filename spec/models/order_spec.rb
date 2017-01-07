@@ -47,7 +47,7 @@ RSpec.describe Order, type: :model do
   it 'can return total quantity of item' do
     order = create(:order_with_items)
 
-    expect(order.item_quantity(order.items.first)).to eq(2)
+    expect(order.item_quantity(order.items.first)).to eq(1)
   end
 
 end

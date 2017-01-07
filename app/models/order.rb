@@ -13,8 +13,6 @@ class Order < ApplicationRecord
   end
 
   def item_quantity(item)
-    orders_items.map do |orders_item|
-      orders_item.item_id == item.id
-    end.count
+    orders_items.where(item_id: item.id).count
   end
 end

@@ -13,9 +13,9 @@ RSpec.describe do
 
       visit orders_path
 
-      expect(page).to have_content 'Welcome to Your Orders'
+      expect(page).to have_content 'Your Orders'
 
-      click_on "Order # #{@user.orders.first.id}, ordered at #{@user.orders.first.created_at}."
+      click_on 'Order Details'
 
       expect(current_path).to eq(order_path(@user.orders.first))
     end

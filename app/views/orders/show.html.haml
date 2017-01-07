@@ -1,24 +1,23 @@
 .order-container
   .order-header
     .order-price
-      %h3 <strong>Total:</strong> #{number_to_currency(400.2)}
+      %h3 <strong>Total:</strong> #{number_to_currency(@order.total_price)}
     .order-info
-      %p <strong>Submitted:</strong> #{'01/01/0000, 05:21'}
-      %p <strong>Status:</strong> #{'Cancelled, 01/01/0000'}
-      %p <strong>Order ID:</strong> #{'23'}
+      %p <strong>Submitted:</strong> #{@order.created_at}
+      %p <strong>Status:</strong> #{@order.status}, Date: #{@order.updated_at}
+      %p <strong>Order ID:</strong> #{@order.id}
 
   %ul.order-list
-    - item = Item.first #Delete line
-    - 2.times do |n| #Change to @orders.each do |order|
+    - @order.items.each do |item|
       %li.order-item
         .img-container
           %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
         %section.info
           %h2= link_to item.name, item_path(item)
           %p= item.description
-          %p= format_price_per_unit(item) #change to order_item price
-          %p= "Quantity: 7" #Insert an order method
-          %p= "Subtotal: #{number_to_currency(7 * item.price_per_unit)}" # change to an order_item method
+          %p= format_price_per_unit(@order.order_item(item))
+          %p= "Quantity: #{@order.order_item_quantity(item)}"
+          %p= "Subtotal: #{number_to_currency(@order.subtotal(item))}"
       %hr
 
   .orders-link

@@ -9,7 +9,7 @@ FactoryGirl.define do
 
     factory :user_with_orders do
       after(:create) do |user|
-        create_list(:order, 3, user: user)
+        create(:order_with_items, user: user)
       end
     end
   end

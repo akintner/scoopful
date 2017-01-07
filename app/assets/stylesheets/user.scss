@@ -16,16 +16,16 @@
   }
 }
 @media (min-width: 768px) {
-      display: inline-flex;
-      justify-content: space-around;
-      align-items: center;
-      margin: 20px auto;
-      width: 100%;
-    h1 {
-      font-size: 50px;
-    }
-    .item-image {
-      width: 33%;
-      height: auto;
-    } 
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+  h1 {
+    font-size: 50px;
+  }
+  .item-image {
+    width: 33%;
+    height: auto;
+  } 
 }

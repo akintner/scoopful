@@ -1,3 +1,6 @@
+Item.destroy_all
+Category.destroy_all
+
 coffees = Category.create(title: 'Coffees')
 nuts = Category.create(title: 'Nuts')
 spices = Category.create(title: 'Spices')

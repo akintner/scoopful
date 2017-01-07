@@ -6,7 +6,7 @@
     background-size: cover;
     background-color: $brown;
     width: 95%;
-    min-height: 600px;
+    min-height: 500px;
     margin: 10px auto;
     display: flex;
     flex-flow: column wrap;
@@ -40,6 +40,7 @@
     }
   }
   @media (min-width: 768px) {
+      height: 600px;
     .button-card {
       a {
         background: $gray;

@@ -24,9 +24,7 @@
             #{order.status}
             %b.caret
           %ul.dropdown-menu
-            - @statuses.each do |status|
-              %li
-                = link_to status, admin_dashboard_path(:status => status) if status != order.status
+            %li= link_to('mark as paid', order_path(order, :status => 1), method: :put) if order.ordered?
         %p <strong>Updated At:</strong> #{order.updated_at}
         %p <strong>Order ID:</strong> #{order.id}
       .order-button

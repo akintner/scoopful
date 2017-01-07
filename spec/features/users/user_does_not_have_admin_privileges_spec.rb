@@ -12,5 +12,15 @@ RSpec.feature do
 
       expect_404
     end
+
+    scenario 'cannot see another users order details' do
+      user1 = create(:user)
+      user2 = create(:user_with_orders)
+      order = user2.orders.first
+      login_user(user1)
+      visit order_path(order)
+
+      expect(current_path).to eq(dashboard_path)
+    end
   end
 end

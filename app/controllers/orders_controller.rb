@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    redirect_to dashboard_path unless verified_user?
+    redirect_to dashboard_path unless @order.verified_user?(current_user)
   end
 
   def create
@@ -15,7 +15,4 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  def verified_user?
-    @order.user_id == current_user.id || current_admin?
-  end
 end

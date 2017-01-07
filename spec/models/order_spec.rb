@@ -44,10 +44,6 @@ RSpec.describe Order, type: :model do
     expect(@order_with_items.total_price).to eq(3.98)
   end
 
-  it 'can return total quantity of item' do
-    expect(@order_with_items.item_quantity(@item)).to eq(1)
-  end
-
   it 'can calculate subtotal' do
     expect(@order_with_items.subtotal(@item)).to eq(1.99)
   end

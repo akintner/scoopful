@@ -9,12 +9,8 @@ class Order < ApplicationRecord
     orders_items.map { |item| item.current_price_per_unit * item.quantity.to_f }.sum
   end
 
-  def item_quantity(item)
-    orders_items.where(item_id: item.id).count
-  end
-
   def subtotal(item)
-    item_quantity(item) * orders_items.find_by(item_id: item.id).current_price_per_unit
+    order_item(item).subtotal
   end
 
   def order_item(item)

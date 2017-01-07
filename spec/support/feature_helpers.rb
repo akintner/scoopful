@@ -76,6 +76,7 @@ module FeatureHelpers
         expect(page).to_not have_content order.id
       end
     end
+  end
 
   def login_stub(user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)

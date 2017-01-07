@@ -19,7 +19,14 @@
         %p <strong>User: </strong> #{order.user.name}
         %p <strong>Total:</strong> #{number_to_currency(order.total_price)} 
         %p <strong>Submitted:</strong> #{order.created_at}
-        %p <strong>Status:</strong> #{order.status}
+        .dropdown
+          %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
+            #{order.status}
+            %b.caret
+          %ul.dropdown-menu
+            - @statuses.each do |status|
+              %li
+                = link_to status, admin_dashboard_path(:status => status) if status != order.status
         %p <strong>Updated At:</strong> #{order.updated_at}
         %p <strong>Order ID:</strong> #{order.id}
       .order-button

@@ -24,7 +24,9 @@ RSpec.feature do
 
       scenario 'filter orders by status' do
         Order.statuses.keys.each do |status|
-          click_on status
+          within '.sort-by' do
+            click_on status
+          end
           expect(current_path).to eq admin_dashboard_path
           expect(page).to have_content "#{status.capitalize} Orders"
           expect_only_orders("#{status}?")

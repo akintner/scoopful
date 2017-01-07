@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature 'Cart Checkout' do
-
   before do
     @category = create(:category_with_items)
     @item1 = @category.items.first

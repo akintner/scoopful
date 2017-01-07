@@ -2,11 +2,11 @@
   %article.form-header
 
     - if @user.new_record?
-      %h3 Create an Account 
+      %h3 Create an Account
 
     - else
       %h3 Update Profile
-      
+
   %article.form-fields
     = bootstrap_form_for @user do |f|
       %article.form-field

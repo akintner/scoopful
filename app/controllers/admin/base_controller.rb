@@ -1,5 +1,4 @@
 class Admin::BaseController < ApplicationController
-
   before_action :require_admin
 
   def require_admin
@@ -12,5 +11,4 @@ class Admin::BaseController < ApplicationController
     @header = params[:status].capitalize if params[:status]
     render 'admin/dashboard'
   end
-
 end

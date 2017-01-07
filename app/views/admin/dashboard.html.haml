@@ -6,7 +6,10 @@
       %strong= "Name: #{current_user.name}"
     %article.user-email
       %strong= "Email: #{current_user.email}"
+%hr
 
+%hr
+= link_to "View All Items", admin_items_path
 %hr
 
 = render partial: 'admin/admin-orders'

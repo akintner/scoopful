@@ -38,4 +38,9 @@ class Order < ApplicationRecord
       Order.all
     end
   end
+
+  def verified_user?(current_user)
+    user_id == current_user.id || current_user.admin?
+  end
+
 end

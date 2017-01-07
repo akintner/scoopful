@@ -3,6 +3,9 @@
     .order-price
       %h3 <strong>Total:</strong> #{number_to_currency(@order.total_price)}
     .order-info
+      - if current_admin?
+        %p <strong>User:</strong> #{@order.user.name}
+        %p <strong>Email:</strong> #{@order.user.email}
       %p <strong>Submitted:</strong> #{@order.created_at}
       %p <strong>Status:</strong> #{@order.status}, Date: #{@order.updated_at}
       %p <strong>Order ID:</strong> #{@order.id}

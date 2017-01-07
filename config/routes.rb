@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources 'items', only: [:index, :show]
   post '/retired_item', to: 'items#reject', as: 'retired_item'
-  
+
   resources :orders, only: [:index, :show, :create]
 
   resources :carts, only: [:create]
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create] 
+  resources :users, only: [:new, :create, :edit, :update] 
   
   get '/dashboard', to: 'users#show'
 

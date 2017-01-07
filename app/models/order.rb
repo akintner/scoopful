@@ -6,10 +6,7 @@ class Order < ApplicationRecord
   enum status: %w(ordered paid cancelled completed)
 
   def total_price
-    orders_items.reduce(0) do |sum, item|
-      sum += (item.current_price_per_unit * item.quantity.to_f)
-      sum
-    end
+    orders_items.map { |item| item.current_price_per_unit * item.quantity.to_f }.sum
   end
 
   def item_quantity(item)

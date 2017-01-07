@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = current_user.orders.find(params[:id])
+    @order = Order.find(params[:id])
+    redirect_to dashboard_path unless @order.verified_user?(current_user)
   end
 
   def create
@@ -13,4 +14,5 @@ class OrdersController < ApplicationController
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
   end
+
 end

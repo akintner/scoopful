@@ -9,5 +9,4 @@ class Item < ApplicationRecord
   validates :image, presence: true
 
   enum status: %w(active retired)
-
 end

@@ -32,6 +32,9 @@ RSpec.describe do
         expect(page).to have_content item.name
         expect(page).to have_content @order.item_quantity(item)
       end
-  end
+
+      click_on @order.items.first.name
+      expect(current_path).to eq(item_path(@order.items.first))
+    end
   end
 end

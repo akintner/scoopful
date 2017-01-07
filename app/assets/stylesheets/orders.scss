@@ -20,18 +20,19 @@
       a {
         color: white;
         font-size: 12px;
-        background:$black;
+        background: $black;
         text-align: center;
         margin-top: 4px;
         width: 100%;
+      }
+      a:hover {
+        background: $brown;
       }
     }
     .order-info p {
       padding: 2px 0;
     }
   }
-
-
   @media (min-width: 768px) {
     h3 {
       font-size: 30px;
@@ -57,7 +58,6 @@
           width: 100%;
           text-align: center;
         }
-        
       }
       .order-info {
         padding: 1px 0;

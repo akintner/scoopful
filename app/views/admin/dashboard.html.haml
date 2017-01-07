@@ -9,31 +9,4 @@
 
 %hr
 
-.orders-container
-  .orders-header
-    .header
-      %h3 #{@header if @header} Orders
-    .sort-by
-      .dropdown
-        %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
-          Filter by Status
-          %b.caret
-        %ul.dropdown-menu
-          %li
-            = link_to 'all', admin_dashboard_path
-          - @statuses.each do |status|
-            %li
-              = link_to status, admin_dashboard_path(:status => status)
-
-
-  - @orders.each do |order|
-    .order
-      .order-info
-        %p <strong>User: </strong> #{order.user.name}
-        %p <strong>Total:</strong> #{number_to_currency(order.total_price)} 
-        %p <strong>Submitted:</strong> #{order.created_at}
-        %p <strong>Status:</strong> #{order.status}
-        %p <strong>Updated At:</strong> #{order.updated_at}
-        %p <strong>Order ID:</strong> #{order.id}
-      .order-button
-        = link_to 'Order Details', order_path(order), class: 'btn'
+= render partial: 'admin/admin-orders'

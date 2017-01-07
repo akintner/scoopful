@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_cart
   before_action :set_head_title
+  before_action :require_login
 
   helper_method :current_user
   
@@ -25,4 +26,8 @@ class ApplicationController < ActionController::Base
   def current_admin?
     current_user && current_user.admin?
   end
+
+  def require_login
+    redirect_to login_path unless current_user
+  end 
 end

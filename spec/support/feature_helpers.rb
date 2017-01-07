@@ -67,4 +67,14 @@ module FeatureHelpers
   def total(item1, item2, quantity = 1)
     (item1.price_per_unit * quantity + item2.price_per_unit).round(2)
   end
+
+  def expect_only_orders(status)
+    @orders.each do |order|
+      if order.send(status)
+        expect(page).to have_content order.id
+      else
+        expect(page).to_not have_content order.id
+      end
+    end
+  end
 end

@@ -12,18 +12,18 @@
 .orders-container
   .orders-header
     .header
-      %h3 Orders
+      %h3 #{@header if @header} Orders
     .sort-by
       .dropdown
         %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
-          Display by Status
+          Filter by Status
           %b.caret
         %ul.dropdown-menu
           %li
             = link_to 'all', admin_dashboard_path
           - @statuses.each do |status|
             %li
-              = link_to status, admin_dashboard_path
+              = link_to status, admin_dashboard_path(:status => status)
 
 
   - @orders.each do |order|

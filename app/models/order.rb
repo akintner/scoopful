@@ -31,4 +31,11 @@ class Order < ApplicationRecord
     end
   end
 
+  def self.by_status(status)
+    if Order.statuses.keys.include?(status)
+      Order.send(status)
+    else
+      Order.all
+    end
+  end
 end

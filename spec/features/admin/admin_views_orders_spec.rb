@@ -26,51 +26,31 @@ RSpec.feature do
         click_on 'ordered'
 
         expect(current_path).to eq admin_dashboard_path
-        
-        @orders.each do |order|
-          if order.ordered?
-            expect(page).to have_content order.id
-          else
-            expect(page).to_not have_content order.id
-          end
-        end
+        expect(page).to have_content 'Ordered Orders'
+        expect_only_orders('ordered?')
 
         click_on 'paid'
 
         expect(current_path).to eq admin_dashboard_path
-        @orders.each do |order|
-          if order.paid?
-            expect(page).to have_content order.id
-          else
-            expect(page).to_not have_content order.id
-          end
-        end
+        expect(page).to have_content 'Paid Orders'
+        expect_only_orders('paid?')
 
         click_on 'cancelled'
 
         expect(current_path).to eq admin_dashboard_path
-        @orders.each do |order|
-          if order.cancelled?
-            expect(page).to have_content order.id
-          else
-            expect(page).to_not have_content order.id
-          end
-        end
+        expect(page).to have_content 'Cancelled Orders'
+        expect_only_orders('cancelled?')
 
         click_on 'completed'
 
         expect(current_path).to eq admin_dashboard_path
-        @orders.each do |order|
-          if order.completed?
-            expect(page).to have_content order.id
-          else
-            expect(page).to_not have_content order.id
-          end
-        end
+        expect(page).to have_content 'Completed Orders'
+        expect_only_orders('completed?')
 
         click_on 'all'
 
         expect(current_path).to eq admin_dashboard_path
+        expect(page).to have_content 'Orders'
         @orders.each do |order|
           expect(page).to have_content order.id
         end

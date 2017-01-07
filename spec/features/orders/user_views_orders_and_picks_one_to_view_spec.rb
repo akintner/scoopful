@@ -17,14 +17,13 @@ RSpec.describe do
 
       click_on "Order # #{@user.orders.first.id}, ordered at #{@user.orders.first.created_at}."
 
-      expect(current_path).to eq(user_order_path(@user, @user.orders.first))
+      expect(current_path).to eq(order_path(@user.orders.first))
     end
 
     scenario 'sees that order and all of its items' do
-
-      visit user_order_path(@user, @order)
+      visit order_path(@order)
       
-      expect(page).to have_content @order.status.capitalize
+      expect(page).to have_content @order.status
       expect(page).to have_content @order.total_price
       expect(page).to have_content @order.created_at
       expect(page).to have_content @order.updated_at

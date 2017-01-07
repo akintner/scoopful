@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources 'items', only: [:index, :show]
   
-  resources :orders, only: [:index]
+  resources :orders, only: [:index, :show]
 
   resources :carts, only: [:create]
   put    '/carts', to: 'carts#update'
@@ -16,9 +16,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create] do  
-    resources :orders, only: [:show]
-  end
+  resources :users, only: [:new, :create] 
+  
   get '/dashboard', to: 'users#show'
 
   get '/:category_name', to: 'categories#show', as: 'category'

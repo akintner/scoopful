@@ -15,8 +15,8 @@
         %section.info
           %h2= link_to item.name, item_path(item)
           %p= item.description
-          %p= format_price_per_unit(@order.orders_items.find_by(item_id: item.id))
-          %p= "Quantity: #{@order.orders_items.find_by(item_id: item.id).quantity}"
+          %p= format_price_per_unit(@order.order_item(item))
+          %p= "Quantity: #{@order.order_item_quantity(item)}"
           %p= "Subtotal: #{number_to_currency(@order.subtotal(item))}"
       %hr
 

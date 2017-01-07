@@ -26,5 +26,14 @@ RSpec.feature do
 
       expect_login_path
     end
+
+
+    scenario 'cannot see order details' do
+      user = create(:user_with_orders)
+      order = user.orders.first
+      visit order_path(order)
+      
+      expect(current_path).to eq(login_path)
+    end
   end
 end

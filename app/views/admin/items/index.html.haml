@@ -1,0 +1,16 @@
+%h1 View All Items
+%hr 
+%section.admin-items-table
+  %table
+    %th Item Picture
+    %th Item Info
+    - @items.each do |item|
+      %td
+        %img{'src' => item.image_url, 'alt' => item.name}
+      %td
+        %ul
+          %li= link_to item.name
+          %li= item.description
+          %li= item.status
+          %li= button_to "Edit", edit_admin_item_path(item)
+%hr

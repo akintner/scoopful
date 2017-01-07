@@ -1,0 +1,32 @@
+.admin-dashboard {
+  background: $gray;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 3px;
+  .admin-welcome {
+    display: inline;
+    padding: 20px;
+    .user-name {
+      background: $gray;
+      float: left;
+    }
+    .user-email {
+      background: $gray;
+      float: right;
+    }
+  }
+}
+@media (min-width: 768px) {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+  h1 {
+    font-size: 50px;
+  }
+  .item-image {
+    width: 33%;
+    height: auto;
+  } 
+}

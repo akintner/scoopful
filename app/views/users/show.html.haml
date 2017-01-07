@@ -1,2 +1,8 @@
-= "Name: #{current_user.name}"
-= "Email: #{current_user.email}"
+%section.users-dashboard
+  %section.users-welcome
+    %article.user-name
+      %strong= "Name: #{current_user.name}"
+    %article.user-email
+      %strong= "Email: #{current_user.email}"
+
+%hr

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order('updated_at DESC')
   end
 
   def show

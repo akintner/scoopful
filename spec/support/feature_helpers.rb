@@ -24,4 +24,5 @@ module FeatureHelpers
       expect(page).to have_content "Subtotal: $#{item.price_per_unit}"
     end
   end
+
 end

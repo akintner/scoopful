@@ -1,11 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe do
+
+  before do
+    @user = create(:user_with_orders)
+    @order = @user.orders.first
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+  end
+
   context 'user' do
     scenario 'sees all orders and picks one to view' do
-      @user = create(:user_with_orders)
-      orders = @user.orders
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
       visit orders_path
 
@@ -17,9 +21,6 @@ RSpec.describe do
     end
 
     scenario 'sees that order and all of its items' do
-      @user = create(:user_with_orders)
-      @order = @user.orders.first
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
 
       visit user_order_path(@user, @order)
       

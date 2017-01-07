@@ -23,9 +23,19 @@ RSpec.describe Order, type: :model do
   end
 
   it 'can be updated to cancelled' do
+    order = create(:order)
+    order.status = :cancelled
+
+    expect(order.status).to eq('cancelled')
+    expect(order.cancelled?).to be_truthy
   end
 
   it 'can be updated to completed' do
+    order = create(:order)
+    order.status = :completed
+
+    expect(order.status).to eq('completed')
+    expect(order.completed?).to be_truthy
   end
 
   it 'can return total price' do

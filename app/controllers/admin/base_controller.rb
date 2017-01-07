@@ -8,8 +8,4 @@ class Admin::BaseController < ApplicationController
   def dashboard
     render 'admin/dashboard'
   end
-
-  def admin_items
-  end
-
 end

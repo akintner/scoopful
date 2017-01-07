@@ -25,7 +25,7 @@ RSpec.feature do
 
       click_on 'Log in or Register to Check out'
       click_on 'Create Account'
-      
+
       fill_account_info
       click_on 'Submit'
 

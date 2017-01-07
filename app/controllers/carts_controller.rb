@@ -1,6 +1,8 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
+  skip_before_action :require_login
+
   def create
     item = Item.find(params[:item_id])
 

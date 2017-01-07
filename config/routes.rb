@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   namespace :admin do 
     get '/dashboard', to: 'base#dashboard'
+    get '/items', to: 'base#items'
   end
 
   get '/:category_name', to: 'categories#show', as: 'category'

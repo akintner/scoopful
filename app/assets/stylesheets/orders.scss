@@ -1,0 +1,65 @@
+.orders-container {
+  margin: 20px;
+  h3 {
+    font-size: 18px;
+    padding: 5px 0px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .order {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+    width: 100%;
+    background: $gray;
+    padding: 10px;
+    .order-button {
+      width: 100%;
+      font-size: 12px;
+      background:$black;
+      text-align: center;
+      margin-top: 4px;
+      a {
+        color: white;
+      }
+    }
+    .order-info p {
+      padding: 2px 0;
+    }
+  }
+
+
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 15px;
+    }
+    .order {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin: 0 auto;
+      width: 100%;
+      background: $gray;
+      padding: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+      .order-button {
+        padding: 5px 0;
+        width: 40%;
+        order: 2;
+        text-align: center;
+      }
+      .order-info {
+        padding: 1px 0;
+        width: 50%;
+        order: 1;
+        text-align: left;
+      }
+    }
+  }
+}

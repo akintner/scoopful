@@ -36,7 +36,7 @@ RSpec.feature "Visit another user's order" do
     order = user2.orders.first
     login_user(user1)
     visit order_path(order)
-    
+
     expect(current_path).to eq(dashboard_path)
   end
 

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Visit another user's order" do
+RSpec.feature 'Visit another users order' do
 
-  scenario "admins can see all order details" do
+  scenario 'admins can see all order details' do
     admin = create(:user, role: 1)
     user = create(:user_with_orders)
     order = user.orders.first
@@ -22,7 +22,7 @@ RSpec.feature "Visit another user's order" do
     end
   end
 
-  scenario "visitor cannot see order details" do
+  scenario 'visitor cannot see order details' do
     user = create(:user_with_orders)
     order = user.orders.first
     visit order_path(order)
@@ -30,7 +30,7 @@ RSpec.feature "Visit another user's order" do
     expect(current_path).to eq(login_path)
   end
 
-  scenario "users cannot see another user's order details" do
+  scenario 'users cannot see another users order details' do
     user1 = create(:user)
     user2 = create(:user_with_orders)
     order = user2.orders.first

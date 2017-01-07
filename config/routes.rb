@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'items#index'
+  root to: 'splash#index'
 
   resources 'items', only: [:index, :show]
   post '/retired_item', to: 'items#reject', as: 'retired_item'

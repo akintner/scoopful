@@ -8,6 +8,7 @@ class Admin::BaseController < ApplicationController
 
   def dashboard
     @orders = Order.all
+    @statuses = Order.statuses.keys
     render 'admin/dashboard'
   end
 

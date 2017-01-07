@@ -7,6 +7,23 @@
   p {
     font-size: 12px;
   }
+
+  .orders-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+    width: 100%;
+    align-items: center;
+    .header {
+      width: 50%;
+    }
+    .sort-by {
+      width: 50%;
+      text-align: left;
+    }
+  }
+
   .order {
     display: flex;
     flex-flow: column wrap;

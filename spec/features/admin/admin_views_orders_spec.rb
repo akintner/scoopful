@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.feature do
   before do
-    @orders = create_list(:order_with_items, 3)
+    @ordered_orders = create_list(:order_with_items, 2, status: 0)
+    @paid_orders = create_list(:order_with_items, 2, status: 1)
+    @cancelled_orders = create_list(:order_with_items, 2, status: 2)
+    @completed_orders = create_list(:order_with_items, 2, status: 3)
+    @orders = Order.all
     user = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit admin_dashboard_path
@@ -19,7 +23,57 @@ RSpec.feature do
       end
 
       scenario 'filter orders by status' do
+        click_on 'ordered'
 
+        expect(current_path).to eq admin_dashboard_path
+        
+        @orders.each do |order|
+          if order.ordered?
+            expect(page).to have_content order.id
+          else
+            expect(page).to_not have_content order.id
+          end
+        end
+
+        click_on 'paid'
+
+        expect(current_path).to eq admin_dashboard_path
+        @orders.each do |order|
+          if order.paid?
+            expect(page).to have_content order.id
+          else
+            expect(page).to_not have_content order.id
+          end
+        end
+
+        click_on 'cancelled'
+
+        expect(current_path).to eq admin_dashboard_path
+        @orders.each do |order|
+          if order.cancelled?
+            expect(page).to have_content order.id
+          else
+            expect(page).to_not have_content order.id
+          end
+        end
+
+        click_on 'completed'
+
+        expect(current_path).to eq admin_dashboard_path
+        @orders.each do |order|
+          if order.completed?
+            expect(page).to have_content order.id
+          else
+            expect(page).to_not have_content order.id
+          end
+        end
+
+        click_on 'all'
+
+        expect(current_path).to eq admin_dashboard_path
+        @orders.each do |order|
+          expect(page).to have_content order.id
+        end
       end
 
       scenario ' transitions between statuses' do

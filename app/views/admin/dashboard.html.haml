@@ -10,7 +10,22 @@
 %hr
 
 .orders-container
-  %h3 Orders
+  .orders-header
+    .header
+      %h3 Orders
+    .sort-by
+      .dropdown
+        %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
+          Display by Status
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            = link_to 'all', admin_dashboard_path
+          - @statuses.each do |status|
+            %li
+              = link_to status, admin_dashboard_path
+
+
   - @orders.each do |order|
     .order
       .order-info

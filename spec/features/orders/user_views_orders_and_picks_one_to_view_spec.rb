@@ -31,6 +31,7 @@ RSpec.describe do
       @order.items.each do |item|
         expect(page).to have_content item.name
         expect(page).to have_content @order.item_quantity(item)
+        expect(page).to have_content @order.subtotal(item)
       end
 
       click_on @order.items.first.name

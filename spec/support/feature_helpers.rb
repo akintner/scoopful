@@ -25,4 +25,19 @@ module FeatureHelpers
     end
   end
 
+  def login_user(user)
+    visit login_path
+    fill_in :email, with: user.email
+    fill_in :password, with: 'password'
+    click_on 'Enter'
+  end
+
+  def expect_404
+    expect(page).to have_content "The page you were looking for doesn't exist (404)"
+  end
+
+  def expect_login_path
+    expect(current_path).to eq login_path
+  end
+
 end

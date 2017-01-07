@@ -50,4 +50,10 @@ RSpec.describe Order, type: :model do
     expect(order.item_quantity(order.items.first)).to eq(1)
   end
 
+  it 'can calculate subtotal' do
+    order = create(:order_with_items)
+
+    expect(order.subtotal(order.items.first)).to eq(1.99)
+  end
+
 end

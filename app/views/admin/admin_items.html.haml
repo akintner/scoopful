@@ -10,3 +10,7 @@
       %td
         %ul
           %li= link_to item.name
+          %li= item.description
+          %li= item.status
+          %li= button_to "Edit", edit_admin_items_path(item)
+%hr

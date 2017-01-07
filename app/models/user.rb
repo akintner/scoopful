@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+
+  def verified?(params_id)
+    id == params_id.to_i
+  end
 end

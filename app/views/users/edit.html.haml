@@ -1,0 +1,20 @@
+%article.form-container
+  %article.form-header
+    %h3 Update Profile
+  
+  %article.form-fields
+    = bootstrap_form_for @user do |f|
+      %article.form-field
+        = f.text_field :first_name, hide_label: true, placeholder: "#{@user.first_name}"
+      %article.form-field
+        = f.text_field :last_name, hide_label: true, placeholder: "#{@user.last_name}"
+      %article.form-field
+        = f.email_field :email, hide_label: true, placeholder: "#{@user.email}"
+      %article.form-field
+        = f.password_field :current_password, hide_label: true, placeholder: 'current password'
+      %article.form-field
+        = f.password_field :new_password, hide_label: true, placeholder: 'new password'
+      %article.form-field
+        = f.password_field :new_password_confirmation, hide_label: true, placeholder: 'confirm new password'
+      %article.form-field
+        = f.submit 'Update'

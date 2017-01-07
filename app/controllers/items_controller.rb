@@ -16,5 +16,4 @@ class ItemsController < ApplicationController
     flash[:danger] = "Item has been retired"
     redirect_to item_path(item)
   end
-
 end

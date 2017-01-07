@@ -6,5 +6,7 @@
       %strong= "Name: #{current_user.name}"
     %article.user-email
       %strong= "Email: #{current_user.email}"
+    %article.update-profile-button
+      = link_to('Update Profile Information', edit_user_path(current_user))
 %hr
 = link_to "View All Items", admin_items_path

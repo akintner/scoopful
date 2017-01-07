@@ -67,4 +67,8 @@ module FeatureHelpers
   def total(item1, item2, quantity = 1)
     (item1.price_per_unit * quantity + item2.price_per_unit).round(2)
   end
+
+  def login_stub(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
 end

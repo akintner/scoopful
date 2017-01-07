@@ -22,6 +22,27 @@ class UsersController < ApplicationController
     @orders = current_user.orders
   end
 
+  def edit
+    if current_user.verified?(params[:id])
+      @user = current_user
+    else
+      flash[:error] = 'You cannot modify another user\'s profile.'
+      flash.keep(:error) if current_admin?
+      redirect_to dashboard_path
+    end
+  end
+
+  def update
+    if current_user.update(user_params)
+      flash[:success] = 'Profile Updated!'
+      flash.keep(:success) if current_admin?
+      redirect_to dashboard_path
+    else
+      flash.now[:danger] = @user.errors.full_messages.first
+      render :edit
+    end
+  end
+
   private
 
   def user_params

@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  before_action :require_admin, only: [:update]
+
   def index
     @orders = current_user.orders.order('updated_at DESC')
   end
@@ -16,7 +19,6 @@ class OrdersController < ApplicationController
   end
 
   def update
-    require_admin
     order = Order.find(params[:id])
     order.update(status: params[:status].to_i)
     flash[:success] = "Order #{order.id} successfully updated"

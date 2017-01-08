@@ -74,5 +74,28 @@ RSpec.feature do
       expect(page).to have_content 'Item Updated!'
       expect(page).to have_content 'active'
     end
+
+    context 'when they enter invalid data' do
+      scenario 'they see an error' do
+        fill_in 'item[name]', with: ''
+        fill_in 'item[description]', with: ''
+
+        click_on 'Update'
+
+        expect(page).to have_content 'Name can\'t be blank'
+        expect(page).to have_content 'Description can\'t be blank'
+      end
+    end
+
+    context 'when they enter duplicate data' do
+      scenario 'they see an error' do
+        item2 = create(:item)
+
+        fill_in 'item[name]', with: item2.name
+        click_on 'Update'
+
+        expect(page).to have_content 'Name has already been taken'
+      end
+    end
   end
 end

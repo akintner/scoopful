@@ -16,4 +16,4 @@
           %td= link_to item.name
           %td= item.description
           %td= item.status
-          %td= button_to "Edit", edit_admin_item_path(item)
+          %td= button_to "Edit", edit_admin_item_path(item), method: :get

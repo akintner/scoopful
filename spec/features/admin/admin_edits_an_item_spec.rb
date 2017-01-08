@@ -23,6 +23,8 @@ RSpec.feature do
 
   context 'admin' do
     scenario 'can edit an item\'s title' do
+      expect(page).to_not have_content 'NewTitle'
+
       fill_in 'item[name]', with: 'NewTitle'
       click_on 'Update'
 
@@ -31,6 +33,8 @@ RSpec.feature do
     end
 
     scenario 'can edit an item\'s description' do
+      expect(page).to_not have_content 'New description'
+
       fill_in 'item[description]', with: 'New description'
       click_on 'Update'
 
@@ -38,20 +42,37 @@ RSpec.feature do
       expect(page).to have_content 'New description'
     end
 
-    xscenario 'can edit an item\'s image' do
-      fill_in 'item[image]', with: ''
+    scenario 'can edit an item\'s image' do
+      expect(page).to_not have_xpath("//img[@src=\"/uploads/test.jpeg\"]")
+
+      attach_file('image', "#{Rails.root}/spec/support/images/test.jpeg")
       click_on 'Update'
 
+
       expect(page).to have_content 'Item Updated!'
-      expect(page).to have_content ''
+      expect(page).to have_xpath("//img[@src=\"/uploads/test.jpeg\"]")
     end
 
-    xscenario 'can edit an item\'s status' do
-      click_on 'Retired'
+    scenario 'can retire an item' do
+      choose 'retired'
       click_on 'Update'
 
       expect(page).to have_content 'Item Updated!'
-      expect(page).to have_content 'Retired'
+      expect(page).to have_content 'retired'
+    end
+
+    scenario 'can activate an item' do
+      choose 'retired'
+      click_on 'Update'
+
+      expect(page).to_not have_content 'active'
+
+      click_on 'Edit'
+      choose 'active'
+      click_on 'Update'
+
+      expect(page).to have_content 'Item Updated!'
+      expect(page).to have_content 'active'
     end
   end
 end

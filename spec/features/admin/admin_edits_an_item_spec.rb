@@ -11,6 +11,7 @@ RSpec.feature do
 
   context 'admin' do
     scenario 'can edit an item\'s title' do
+      expect(current_path).to eq edit_admin_item_path(@item)
       expect(page).to_not have_content 'NewTitle'
 
       fill_in 'item[name]', with: 'NewTitle'

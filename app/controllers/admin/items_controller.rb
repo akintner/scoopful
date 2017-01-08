@@ -4,6 +4,7 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def edit
+    @statuses = Item.statuses
     @item = Item.find(params[:id])
   end
 
@@ -19,6 +20,6 @@ class Admin::ItemsController < Admin::BaseController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description)
+    params.require(:item).permit(:name, :description, :status, :image)
   end
 end

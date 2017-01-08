@@ -19,12 +19,17 @@
         %p <strong>User: </strong> #{order.user.name}
         %p <strong>Total:</strong> #{number_to_currency(order.total_price)} 
         %p <strong>Submitted:</strong> #{order.created_at}
-        .dropdown
-          %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
-            #{order.status}
-            %b.caret
-          %ul.dropdown-menu
-            %li= link_to('mark as paid', order_path(order, :status => 1), method: :put) if order.ordered?
+        - if order.completed? || order.cancelled?
+          %p <strong>Status:</strong> #{order.status}
+        - else
+          .dropdown
+            %a.dropdown-toggle{ "data-toggle" => "dropdown", href: "#" }
+              <strong>Status:</strong> #{order.status}
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to('mark as paid', order_path(order, :status => 1), method: :put) if order.ordered?
+              %li= link_to('mark as completed', order_path(order, status: 3), method: :put) if order.paid?
+              %li= link_to('cancel', order_path(order, status: 2), method: :put) if order.paid? || order.ordered?
         %p <strong>Updated At:</strong> #{order.updated_at}
         %p <strong>Order ID:</strong> #{order.id}
       .order-button

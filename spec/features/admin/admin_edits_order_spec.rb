@@ -2,54 +2,50 @@ require 'rails_helper'
 
 RSpec.feature do
   before do
-    user = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    admin = create(:user, role: 1)
+    login_stub(admin)
   end
 
   context 'visit admin dashboard' do
     context 'admin' do
-      # scenario 'change order status from ordered to cancelled' do
-      #   @order = create(:order_with_items, status: 0)
-      #   visit admin_dashboard_path
+      scenario 'change order status from ordered to cancelled' do
+        order = create(:order_with_items, status: 0)
+        visit admin_dashboard_path
 
+        click_on 'cancel'
 
-      #   within '.order-info' do
-      #     click_link 'cancel'
-      #   end
+        expect(current_path).to eq admin_dashboard_path
+        expect(page).to have_content "Order #{order.id} successfully updated"
+        expect(order.cancelled?).to be_truthy 
+      end
 
-      #   expect(@order.cancelled?).to be_truthy 
-      # end
+      scenario 'change order status from paid to cancelled' do
+        order = create(:order_with_items, status: 1)
+        visit admin_dashboard_path
 
-      # scenario 'change order status from paid to cancelled' do
-      #   @order = create(:order_with_items, status: 1)
-      #   visit admin_dashboard_path
+        click_on 'cancel'
 
-      #   within '.order-info' do
-      #     click_link 'cancel'
-      #   end
+        expect(current_path).to eq admin_dashboard_path
+        expect(page).to have_content "Order #{order.id} successfully updated"
+        expect(order.cancelled?).to be_truthy 
+      end
 
-      #   expect(@order.cancelled?).to be_truthy 
-      # end
+      scenario 'change order status from paid to completed' do
+        order = create(:order_with_items, status: 1)
+        visit admin_dashboard_path
 
-      # scenario 'change order status from paid to completed' do
-      #   @order = create(:order_with_items, status: 1)
-      #   visit admin_dashboard_path
+        click_on 'mark as completed'
 
-
-      #   within '.order-info' do
-      #     click_link 'mark as completed'
-      #   end
-
-      #   expect(@order.completed?).to be_truthy 
-      # end
+        expect(current_path).to eq admin_dashboard_path
+        expect(page).to have_content "Order #{order.id} successfully updated"
+        expect(order.completed?).to be_truthy 
+      end
 
       scenario 'change order status from ordered to paid' do
         order = create(:order_with_items, status: 0)
         visit admin_dashboard_path
 
-        within '.order-info' do
-          click_link 'mark as paid'
-        end
+        click_on 'mark as paid'
 
         expect(current_path).to eq admin_dashboard_path
         expect(page).to have_content "Order #{order.id} successfully updated"

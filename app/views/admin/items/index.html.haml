@@ -1,20 +1,21 @@
-%h1 All Items
-%hr 
-%section.admin-items-table
-  %table
-    %tr
-      %th Picture
-      %th Name
-      %th Description
-      %th Status
-      %th 
-    - @items.each do |item|
+.admin-items-container
+  %h1 All Items
+  %hr 
+  %section.admin-items-table
+    %table
       %tr
-        %td.image-column
-          %img{'src' => item.image_url, 'alt' => item.name, 'class' => 'img-responsive'}
-        %td= link_to item.name
-        %td= item.description
-        %td= item.status
-        %td= button_to "Edit", edit_admin_item_path(item)
-            
-            
+        %th Picture
+        %th Name
+        %th Description
+        %th Status
+        %th 
+      - @items.each do |item|
+        %tr
+          %td.image-column
+            %img{'src' => item.image_url, 'alt' => item.name, 'class' => 'img-responsive'}
+          %td= link_to item.name
+          %td= item.description
+          %td= item.status
+          %td= button_to "Edit", edit_admin_item_path(item)
+              
+              

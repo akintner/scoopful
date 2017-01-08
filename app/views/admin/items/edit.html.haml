@@ -2,7 +2,7 @@
   %h3 Update Item
 
   %article.form-fields 
-    = bootstrap_form_for [:admin, @item] do |f|
+    = bootstrap_form_for [:admin, @item], :html => {:multipart => true} do |f|
 
       %section.form-field
         = f.text_field :name, hide_label: true, placeholder: 'name'
@@ -11,4 +11,11 @@
         = f.text_field :description, hide_label: true, placeholder: 'description'
 
       %section.form-field
+        = f.file_field :image, hide_label: true, placeholder: 'image'
+
+      %section.form-field
+        = f.collection_radio_buttons :status, @statuses, :first, :first
+
+      %section.form-field
         = f.submit 'Update'
+        

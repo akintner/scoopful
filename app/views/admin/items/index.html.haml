@@ -1,6 +1,6 @@
 .admin-items-container
   %h1 All Items
-  %hr 
+  %hr
   %section.admin-items-table
     %table
       %tr
@@ -8,7 +8,7 @@
         %th Name
         %th Description
         %th Status
-        %th 
+        %th
       - @items.each do |item|
         %tr
           %td.image-column
@@ -17,5 +17,3 @@
           %td= item.description
           %td= item.status
           %td= button_to "Edit", edit_admin_item_path(item)
-              
-              

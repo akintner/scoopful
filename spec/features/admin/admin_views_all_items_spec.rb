@@ -19,8 +19,10 @@ RSpec.feature do
 
       visit admin_items_path
 
-      expect(page).to have_content 'Item Picture'
-      expect(page).to have_content 'Item Info'
+      expect(page).to have_content 'Picture'
+      expect(page).to have_content 'Name'
+      expect(page).to have_content 'Description'
+      expect(page).to have_content 'Status'
       expect(page).to have_button 'Edit'
 
       @items.each do |item|
@@ -28,7 +30,6 @@ RSpec.feature do
         expect(page).to have_content item.description
         expect(page).to have_content item.status
       end
-
     end
   end
 end

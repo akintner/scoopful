@@ -1,15 +1,3 @@
-=begin
-issueTwentyTwo:
-title: Admin edits an item
-body: >
-Background: an existing item
-As an admin
-When I visit "admin/items"
-And I click "Edit"
-Then my current path should be "/admin/items/:ITEM_ID/edit"
-And I should be able to upate title, description, image, and status
-=end
-
 require 'rails_helper'
 
 RSpec.feature do

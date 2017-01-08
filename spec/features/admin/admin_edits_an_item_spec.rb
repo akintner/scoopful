@@ -48,7 +48,6 @@ RSpec.feature do
       attach_file('image', "#{Rails.root}/spec/support/images/test.jpeg")
       click_on 'Update'
 
-
       expect(page).to have_content 'Item Updated!'
       expect(page).to have_xpath("//img[@src=\"/uploads/test.jpeg\"]")
     end

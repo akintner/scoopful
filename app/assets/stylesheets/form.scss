@@ -25,11 +25,11 @@
     background-color: rgba(71, 132, 114, 1);
   }
   .radio .form-group {
+    align-items: baseline;
     display: inline-flex;
-    width: 100%;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: baseline;
+    width: 100%;
     .control-label {
       font-size: 110%;
       padding: 0;

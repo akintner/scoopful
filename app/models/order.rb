@@ -32,7 +32,8 @@ class Order < ApplicationRecord
   end
 
   def self.by_status(status)
-    Order.send(status) rescue Order.all
+    orders = Order.send(status) rescue Order.all
+    orders.order('updated_at DESC')
   end
 
   def verified_user?(current_user)

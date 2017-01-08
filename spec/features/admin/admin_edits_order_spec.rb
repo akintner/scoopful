@@ -12,6 +12,8 @@ RSpec.feature do
         create(:order_with_items, status: 0)
         visit admin_dashboard_path
 
+        expect(Order.cancelled.count).to eq 0
+
         click_on 'cancel'
 
         expect(Order.cancelled.count).to eq 1
@@ -20,6 +22,8 @@ RSpec.feature do
       scenario 'change order status from paid to cancelled' do
         create(:order_with_items, status: 1)
         visit admin_dashboard_path
+
+        expect(Order.cancelled.count).to eq 0
 
         click_on 'cancel'
 
@@ -30,6 +34,8 @@ RSpec.feature do
         create(:order_with_items, status: 1)
         visit admin_dashboard_path
 
+        expect(Order.completed.count).to eq 0
+
         click_on 'mark as completed'
 
         expect(Order.completed.count).to eq 1
@@ -39,6 +45,8 @@ RSpec.feature do
         create(:order_with_items, status: 0)
         visit admin_dashboard_path
 
+        expect(Order.paid.count).to eq 0
+        
         click_on 'mark as paid'
 
         expect(Order.paid.count).to eq 1

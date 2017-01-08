@@ -15,26 +15,43 @@ require 'rails_helper'
 RSpec.feature do
   before do
     @item = create(:item)
+    admin = create(:user, role: 1)
+    login_stub(admin)
     visit admin_items_path
     click_on 'Edit'
   end
 
   context 'admin' do
     scenario 'can edit an item\'s title' do
-      fill_in 'item[title]', with: 'NewTitle'
+      fill_in 'item[name]', with: 'NewTitle'
       click_on 'Update'
 
-      expect(page).to have_content 'Item updated!'
+      expect(page).to have_content 'Item Updated!'
       expect(page).to have_content 'NewTitle'
     end
 
-    xscenario 'can edit an item\'s description' do
+    scenario 'can edit an item\'s description' do
+      fill_in 'item[description]', with: 'New description'
+      click_on 'Update'
+
+      expect(page).to have_content 'Item Updated!'
+      expect(page).to have_content 'New description'
     end
 
     xscenario 'can edit an item\'s image' do
+      fill_in 'item[image]', with: ''
+      click_on 'Update'
+
+      expect(page).to have_content 'Item Updated!'
+      expect(page).to have_content ''
     end
 
     xscenario 'can edit an item\'s status' do
+      click_on 'Retired'
+      click_on 'Update'
+
+      expect(page).to have_content 'Item Updated!'
+      expect(page).to have_content 'Retired'
     end
   end
 end

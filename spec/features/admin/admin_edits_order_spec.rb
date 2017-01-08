@@ -9,14 +9,12 @@ RSpec.feature do
   context 'visit admin dashboard' do
     context 'admin' do
       scenario 'change order status from ordered to cancelled' do
-        order = create(:order_with_items, status: 0)
+        create(:order_with_items, status: 0)
         visit admin_dashboard_path
 
         click_on 'cancel'
 
-        expect(current_path).to eq admin_dashboard_path
-        expect(page).to have_content "Order #{order.id} successfully updated"
-        expect(order.cancelled?).to be_truthy 
+        expect(Order.cancelled.count).to eq 1
       end
 
       scenario 'change order status from paid to cancelled' do
@@ -25,9 +23,7 @@ RSpec.feature do
 
         click_on 'cancel'
 
-        expect(current_path).to eq admin_dashboard_path
-        expect(page).to have_content "Order #{order.id} successfully updated"
-        expect(order.cancelled?).to be_truthy 
+        expect(Order.cancelled.count).to eq 1
       end
 
       scenario 'change order status from paid to completed' do
@@ -36,20 +32,16 @@ RSpec.feature do
 
         click_on 'mark as completed'
 
-        expect(current_path).to eq admin_dashboard_path
-        expect(page).to have_content "Order #{order.id} successfully updated"
-        expect(order.completed?).to be_truthy 
+        expect(Order.completed.count).to eq 1
       end
 
       scenario 'change order status from ordered to paid' do
-        order = create(:order_with_items, status: 0)
+        create(:order_with_items, status: 0)
         visit admin_dashboard_path
 
         click_on 'mark as paid'
 
-        expect(current_path).to eq admin_dashboard_path
-        expect(page).to have_content "Order #{order.id} successfully updated"
-        expect(order.paid?).to be_truthy
+        expect(Order.paid.count).to eq 1
       end
     end 
   end

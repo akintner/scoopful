@@ -27,9 +27,15 @@
               <strong>Status:</strong> #{order.status}
               %b.caret
             %ul.dropdown-menu
-              %li= link_to('mark as paid', order_path(order, :status => 1), method: :put) if order.ordered?
-              %li= link_to('mark as completed', order_path(order, status: 3), method: :put) if order.paid?
-              %li= link_to('cancel', order_path(order, status: 2), method: :put) if order.paid? || order.ordered?
+              - if order.ordered?
+                %li
+                  = link_to('mark as paid', order_path(order, status: 1), method: :put)
+              - if order.paid?
+                %li
+                  = link_to('mark as completed', order_path(order, status: 3), method: :put)
+              - if order.paid? || order.ordered?
+                %li
+                  = link_to('cancel', order_path(order, status: 2), method: :put)
         %p <strong>Updated At:</strong> #{order.updated_at}
         %p <strong>Order ID:</strong> #{order.id}
       .order-button

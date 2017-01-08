@@ -16,7 +16,7 @@
           = link_to "Logged in as #{current_user.first_name}", dashboard_path
     %ul.nav.navbar-nav.navbar-right
       %li
-        %a{ href: cart_path}
+        %a{ href: cart_path }
           View Cart
           %span.badge= @cart.total_count
       %li

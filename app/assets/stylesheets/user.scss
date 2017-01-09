@@ -30,3 +30,18 @@
     height: auto;
   } 
 }
+
+.orders-button {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  color: whitesmoke;
+  background-color: rgba(71, 132, 114, 0.7);
+}
+.orders-button:hover {
+  color: whitesmoke;
+  background-color: rgba(71, 132, 114, 1);
+  text-decoration: none;
+}

@@ -23,7 +23,7 @@ RSpec.feature do
       expect(page).to have_content 'Name'
       expect(page).to have_content 'Description'
       expect(page).to have_content 'Status'
-      expect(page).to have_button 'Edit'
+      expect(page).to have_link 'Edit'
 
       @items.each do |item|
         expect(page).to have_content item.name

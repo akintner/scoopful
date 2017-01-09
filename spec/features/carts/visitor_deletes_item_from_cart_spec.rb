@@ -17,7 +17,7 @@ RSpec.feature do
       click_on 'Remove'
 
       expect(page).to have_content "Successfully removed #{@item1.name} from your cart."
-      expect(page).to have_link @item1.name, items_path 
+      expect(page).to have_link @item1.name
       expect(page).to_not have_content @item1.description
       expect(page).to_not have_content @item1.price_per_unit
       expect(page).to have_content 'Total Price: $0.0'

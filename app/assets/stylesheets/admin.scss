@@ -1,32 +1,57 @@
 .admin-dashboard {
-  background: $gray;
-  margin: 15px;
-  padding: 20px;
-  border-radius: 3px;
-  .admin-welcome {
-    display: inline;
-    padding: 20px;
-    .user-name {
-      background: $gray;
-      float: left;
-    }
-    .user-email {
-      background: $gray;
-      float: right;
-    }
-  }
-}
-@media (min-width: 768px) {
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 20px auto;
-  width: 100%;
+  margin: 10px;
+  padding: 10px;
+
   h1 {
-    font-size: 50px;
+    font-size: 20px;
+    padding: 5px 0 ;
   }
-  .item-image {
-    width: 33%;
-    height: auto;
-  } 
+
+  a {
+    font-size: 12px;
+  }
+
+  .admin-welcome {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+    width: 100%;
+    background: $gray;
+    padding: 10px;
+    font-size: 12px;
+    align-items: center;
+    .user-info {
+      background: $gray;
+      padding: 2px 0;
+    }
+  }
+  
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 50px;
+    }
+    a {
+      font-size: 15px;
+    }
+    .admin-welcome {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin: 10px auto;
+      width: 100%;
+      background: $gray;
+      padding: 10px;
+      font-size: 15px;
+      .user-info {
+        background: $gray;
+        padding: 2px 0;
+      }
+      .user-email {
+        background: $gray;
+        padding: 2px 0;
+      }
+    }
+  }
 }

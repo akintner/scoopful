@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :items, only: [:index]
+
+      get '/most_popular', to: 'items#most_popular'
     end
   end
 

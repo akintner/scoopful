@@ -14,7 +14,8 @@ class Admin::ItemsController < Admin::BaseController
       flash[:success] = 'Item Updated!'
       redirect_to admin_items_path
     else
-      flash.now[:danger] = @item.errors.full_messages.join('.')
+      byebug
+      flash.now[:danger] = @item.errors.full_messages.join('. ')
       render :edit
     end
   end

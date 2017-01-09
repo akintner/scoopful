@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def reject
     item = Item.find(params[:item_id])
-    flash[:danger] = "Item has been retired"
+    flash[:danger] = "#{item.name} has been retired"
     redirect_to item_path(item)
   end
 end

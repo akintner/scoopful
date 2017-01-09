@@ -3,11 +3,13 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def new
-    @user = User.new
+    @user       = User.new
+    @head_titel = ' | Create Account'
   end
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       login_user(@user)
       redirect_to dashboard_path
@@ -19,11 +21,14 @@ class UsersController < ApplicationController
 
   def show
     redirect_to admin_dashboard_path if current_admin?
-    @orders = current_user.orders
+
+    @orders     = current_user.orders
+    @head_title = ' | Dashboard'
   end
 
   def edit
     if current_user.verified?(params[:id])
+      @head_title = ' | Edit Profile'
       @user = current_user
     else
       flash[:error] = 'You cannot modify another user\'s profile.'

@@ -15,7 +15,7 @@ class CartsController < ApplicationController
 
   def index
     @head_title = ' | Your Cart'
-    @items = @cart.items
+    @items      = @cart.items
   end
 
   def update

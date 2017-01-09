@@ -4,6 +4,7 @@
       = f.label 'Looking for something?'
       = f.search_field :name_or_description_or_category_title_cont
       = f.submit
+
 - if active_search?
   %article.category-header
     %h2
@@ -11,8 +12,10 @@
   %article.items-container
     - if @items.any?
       = render partial: 'shared/items', locals: { items: @items } 
+
     - else
       %h3 Sorry, no results found. 
+
 - else
   - @categories.each do |category|
     %article.category-header

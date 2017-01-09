@@ -1,21 +1,27 @@
 .users-dashboard {
   background: $gray;
   margin: 15px;
-  padding: 20px;
   border-radius: 3px;
   .users-welcome {
+    h2 {
+      font-size: 24px;
+    }
+    article,
+    h2 {
+      margin: 10px;
+    }
     display: inline;
     padding: 20px;
     .user-name {
-      background: $gray;
-      float: left;
+      width: 30%;
     }
     .user-email {
-      background: $gray;
-      float: right;
+      width: 30%;
     }
+    .edit-link {}
   }
 }
+
 @media (min-width: 768px) {
   display: inline-flex;
   justify-content: space-around;
@@ -28,7 +34,7 @@
   .item-image {
     width: 33%;
     height: auto;
-  } 
+  }
 }
 
 .orders-button {
@@ -40,6 +46,7 @@
   color: whitesmoke;
   background-color: rgba(71, 132, 114, 0.7);
 }
+
 .orders-button:hover {
   color: whitesmoke;
   background-color: rgba(71, 132, 114, 1);

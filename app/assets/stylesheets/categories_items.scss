@@ -7,9 +7,29 @@
   }
   h2 {
     font-size: 24px;
+    padding: 10px;
   }
   h3 {
     font-size: 20px;
+  }
+  .search {
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-between;
+    margin: 20px;
+    label {
+      font-family: inherit;
+    }
+    input[type=submit] {
+      background: $lightbrown;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    input[type=submit]:hover {
+      background: $brown;
+    }
   }
   .category-header {
     background: $gray;

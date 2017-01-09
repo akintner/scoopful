@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   root to: 'splash#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :items, only: [:index]
+    end
+  end
+
   resources 'items', only: [:index, :show]
   post '/retired_item', to: 'items#reject', as: 'retired_item'
 

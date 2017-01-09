@@ -4,5 +4,6 @@
       %strong= "Name: #{current_user.name}"
     %article.user-email
       %strong= "Email: #{current_user.email}"
-
 %hr
+
+= link_to "View Past Orders", orders_path, class: "orders-button"

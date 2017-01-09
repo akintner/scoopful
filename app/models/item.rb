@@ -1,4 +1,7 @@
+require 'item_analytics'
+
 class Item < ApplicationRecord
+  
   mount_uploader :image, ItemImageUploader
   
   belongs_to :category
@@ -11,4 +14,5 @@ class Item < ApplicationRecord
   validates :image, presence: true
 
   enum status: %w(active retired)
+
 end

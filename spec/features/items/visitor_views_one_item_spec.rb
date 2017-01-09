@@ -37,7 +37,7 @@ RSpec.feature 'Vistor views item' do
     
     click_button 'Item Retired'
     expect(current_path).to eq(item_path(item))
-    expect(page).to have_content("Item has been retired")
+    expect(page).to have_content("#{item.name} has been retired")
   end
 
 end

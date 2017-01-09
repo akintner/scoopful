@@ -6,39 +6,44 @@
   }
 }
 
-.form-container {
-
+.form-container,
+.admin-items-edit-container {
   margin: 20px;
   margin-top: 50px;
-
   .form-header {
     h3 {
       font-size: 20px;
       padding-bottom: 10px;
     }
   }
-
   .btn-default {
     width: 100%;
     color: whitesmoke;
     background-color: rgba(71, 132, 114, 0.7);
+  }
+  input[type=submit]:hover {
+    background-color: rgba(71, 132, 114, 1);
+  }
+  .radio .form-group {
+    align-items: baseline;
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    .control-label {
+      font-size: 110%;
+      padding: 0;
     }
-    input[type=submit]:hover {
-      background-color: rgba(71, 132, 114, 1);
-    }
-  
-
- @media (min-width: 768px) {
+  }
+  @media (min-width: 768px) {
     width: 40%;
     height: 400px;
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
-
     .form-header {
       h3 {
         font-size: 25px;

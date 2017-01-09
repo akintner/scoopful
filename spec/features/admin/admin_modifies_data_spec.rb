@@ -13,12 +13,7 @@ RSpec.feature do
 
       click_on 'Update Profile Information'
 
-      fill_in 'user[first_name]', with: 'Mike'
-      fill_in 'user[last_name]', with: 'Schutte'
-      fill_in 'user[email]', with: 'mike@schutte.com'
-      fill_in 'user[current_password]', with: @admin.password
-      fill_in 'user[new_password]', with: 'password'
-      fill_in 'user[new_password_confirmation]', with: 'password'
+      edit_account_info(@admin)
 
       click_on 'Update'
 

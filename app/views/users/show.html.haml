@@ -1,8 +1,11 @@
 %section.users-dashboard
   %section.users-welcome
+    %h2= "Welcome, #{current_user.first_name}!"
     %article.user-name
       %strong= "Name: #{current_user.name}"
     %article.user-email
       %strong= "Email: #{current_user.email}"
+    %article
+      = link_to('Update Profile Information', edit_user_path(current_user))
 
 %hr

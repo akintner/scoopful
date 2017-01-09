@@ -1,20 +1,22 @@
 %article.search
   - if @q
     = search_form_for @q do |f|
-      = f.label :name_or_description_cont
+      = f.label 'Looking for something?'
       = f.search_field :name_or_description_or_category_title_cont
       = f.submit
 - if active_search?
   %article.category-header
-    %h1
+    %h2
       = "Results for \"#{@q.conditions.first.values.first.value}\""
   %article.items-container
-    = render partial: 'shared/items', locals: { items: @items } 
+    - if @items.any?
+      = render partial: 'shared/items', locals: { items: @items } 
+    - else
+      %h3 Sorry, no results found. 
 - else
   - @categories.each do |category|
     %article.category-header
       %h1
         = category.title
-          
     %article.items-container
       = render partial: 'shared/items', locals: { items: category.items } 

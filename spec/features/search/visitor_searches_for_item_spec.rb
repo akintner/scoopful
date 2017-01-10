@@ -35,6 +35,6 @@ RSpec.feature do
 
       expect(page).to have_content 'Results for "asdflasdf"'
       expect(page).to have_content 'Sorry, no results found.'
-    end 
+    end
   end
 end

@@ -20,4 +20,8 @@ module ApplicationHelper
     return item.price_per_unit if item.class.to_s == "Item"
     item.current_price_per_unit
   end
+
+  def active_search?
+    @q && @q.conditions.any? && @items 
+  end
 end

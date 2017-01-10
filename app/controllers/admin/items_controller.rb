@@ -3,10 +3,12 @@ class Admin::ItemsController < Admin::BaseController
   before_action :set_statuses, only: [:edit, :update]
 
   def index
-    @items = Item.all
+    @head_title = ' | Admin Items'
+    @items      = Item.all
   end
 
   def edit
+    @head_title = ' | Edit Item'
   end
 
   def update

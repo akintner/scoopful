@@ -4,10 +4,12 @@ class SessionsController < ApplicationController
 
   def new
     redirect_to dashboard_path if current_user
+    @head_title = ' | Login'
   end
 
   def create
     @user = User.find_by(email: params[:email])
+
     if @user && @user.authenticate(params[:password])
       login_user(@user)
       redirect_to dashboard_path

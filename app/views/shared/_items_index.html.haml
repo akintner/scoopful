@@ -8,7 +8,7 @@
 - if active_search?
   %article.category-header
     %h2
-      = Results for \"#{@q.conditions.first.values.first.value}\"
+      = "Results for \"#{@q.conditions.first.values.first.value}\""
   %article.items-container
     - if @items.any?
       = render partial: 'shared/items', locals: { items: @items }

@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
   def create
     order = current_user.orders.create
     order.checkout(@cart.contents)
+    # Checkout.new(@cart.contents).submit(order)
     session.delete(:cart) 
-
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
   end

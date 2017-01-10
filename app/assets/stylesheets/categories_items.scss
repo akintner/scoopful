@@ -1,121 +1,140 @@
-.items-index-container,
-.categories-show-container {
-  width: 100%;
-  h1 {
-    font-size: 36px;
-    padding: 20px;
-  }
-  h2 {
-    font-size: 24px;
-    padding: 10px;
-  }
-  h3 {
-    font-size: 20px;
-  }
-  .search {
-    display: flex;
-    flex-flow: row-reverse wrap;
-    justify-content: space-between;
-    margin: 20px;
-    label {
-      font-family: inherit;
-    }
-    input[type=submit] {
-      background: $lightbrown;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 5px;
-    }
-    input[type=submit]:hover {
-      background: $brown;
-    }
-  }
-  .category-header {
-    background: $gray;
-    width: 100%;
-  }
-  .item-card {
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 10px auto;
-    padding: 10px;
-    .item-card-image {
-      text-align: center;
-      img {
-        width: 98%;
-      }
-    }
-    .item-info {
-      align-items: center;
-      display: inline-flex;
-      flex-flow: row nowrap;
-      justify-content: space-between;
-      margin: 10px;
-      .item-title {
-        order: 1;
-        width: 33%;
-        a {
-          text-decoration: none;
-        }
-      }
-      .item-quantity {
-        order: 3;
-        width: 10%;
-        input {
-          border: 1px solid $black;
-          width: 100%;
-        }
-      }
-      .item-price {
-        font-size: 90%;
-        order: 2;
-        text-align: right;
-        width: 30%;
-      }
-    }
-    .item-description {
-      margin: 10px;
-    }
-    .item-card-button {
-      margin: 0 auto;
-      text-align: center;
+    .items-index-container,
+    .categories-show-container {
       width: 100%;
-      form input[type=submit] {
-        background: $lightbrown;
-        border: 1px transparent;
-        border-radius: 5px;
-        color: $black;
-        margin-bottom: 10px;
-        padding: 10px 0;
-        width: 95%;
+      h1 {
+        font-size: 36px;
+        padding: 20px;
       }
-      form input[type=submit]:hover {
+      h2 {
+        font-size: 24px;
+        padding: 10px;
+      }
+      h3 {
+        margin: 10px;
+        font-size: 20px;
+      }
+      .search {
+        display: flex;
+        flex-flow: row-reverse wrap;
+        justify-content: space-between;
+        margin: 20px;
+        form {
+          display: flex;
+          width: 100%;
+          flex-flow: column wrap;
+          justify-content: space-between;
+        }
+        label {
+          font-family: inherit;
+          margin: 5px 0;
+        }
+        input {
+          margin: 5px 0;
+        }
+        input[type=submit] {
+          background: $lightbrown;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 5px;
+        }
+        input[type=submit]:hover {
+          background: $brown;
+        }
+      }
+      .category-header {
         background: $gray;
-      }
-    }
-  }
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 50px;
-    }
-    .items-container {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      margin: 20px auto;
-      .item-card-button {
-        width: 33%;
+        width: 100%;
       }
       .item-card {
-        border: 1px dotted $black;
-        width: 30%;
-        img {
-          max-height: 500px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10px auto;
+        padding: 10px;
+        .item-card-image {
+          text-align: center;
+          img {
+            width: 98%;
+          }
+        }
+        .item-info {
+          align-items: center;
+          display: inline-flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          margin: 10px;
+          .item-title {
+            order: 1;
+            width: 33%;
+            a {
+              text-decoration: none;
+            }
+          }
+          .item-quantity {
+            order: 3;
+            width: 10%;
+            input {
+              border: 1px solid $black;
+              width: 100%;
+            }
+          }
+          .item-price {
+            font-size: 90%;
+            order: 2;
+            text-align: right;
+            width: 30%;
+          }
+        }
+        .item-description {
+          margin: 10px;
+        }
+        .item-card-button {
+          margin: 0 auto;
+          text-align: center;
+          width: 100%;
+          form input[type=submit] {
+            background: $lightbrown;
+            border: 1px transparent;
+            border-radius: 5px;
+            color: $black;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            width: 95%;
+          }
+          form input[type=submit]:hover {
+            background: $gray;
+          }
+        }
+      }
+      @media (min-width: 768px) {
+        h1 {
+          font-size: 50px;
+        }
+        .search {
+          text-align: right;
+          margin: 20px;
+          form {
+            align-self: flex-end;
+            display: block;
+          }
+        }
+        .items-container {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-around;
+          margin: 20px auto;
+          .item-card-button {
+            width: 33%;
+          }
+          .item-card {
+            border: 1px dotted $black;
+            width: 30%;
+            img {
+              max-height: 500px;
+            }
+          }
         }
       }
     }
-  }
-}

@@ -1,9 +1,9 @@
 - items.each do |item|
   - if item.active?
-    %section.item-card{:id => item.name.tr(' ', '-')}
+    %section.item-card{ :id => item.name.tr(' ', '-') }
       %article.item-card-image
         %a{'href' => item_path(item)}
-          %img{'src' => item.image_url, 'alt' => item.name}
+          %img{ 'src' => item.image_url, 'alt' => item.name }
       %article.item-info
         %aside.item-title
           %h3

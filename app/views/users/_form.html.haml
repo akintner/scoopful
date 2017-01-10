@@ -1,37 +1,25 @@
-%article.form-container
-  %article.form-header
+%article.form-fields
+  = bootstrap_form_for @user do |f|
+    %article.form-field
+      = f.text_field :first_name, hide_label: true, placeholder: 'first name'
+    %article.form-field
+      = f.text_field :last_name, hide_label: true, placeholder: 'last name'
+    %article.form-field
+      = f.email_field :email, hide_label: true, placeholder: 'email'
 
     - if @user.new_record?
-      %h3 Create an Account
+      %article.form-field
+        = f.password_field :password, hide_label: true, placeholder: 'password'
+      %article.form-field
+        = f.password_field :password_confirmation, hide_label: true, placeholder: 'confirm password'
 
     - else
-      %h3 Update Profile
-
-  %article.form-fields
-    = bootstrap_form_for @user do |f|
       %article.form-field
-        = f.text_field :first_name, hide_label: true, placeholder: 'first name'
+        = f.password_field :current_password, hide_label: true, placeholder: 'current password'
       %article.form-field
-        = f.text_field :last_name, hide_label: true, placeholder: 'last name'
+        = f.password_field :new_password, hide_label: true, placeholder: 'new password'
       %article.form-field
-        = f.email_field :email, hide_label: true, placeholder: 'email'
+        = f.password_field :new_password_confirmation, hide_label: true, placeholder: 'confirm new password'
+    %article.form-field
+      = f.submit @submit_button_verb
 
-      - if @user.new_record?
-        %article.form-field
-          = f.password_field :password, hide_label: true, placeholder: 'password'
-        %article.form-field
-          = f.password_field :password_confirmation, hide_label: true, placeholder: 'confirm password'
-
-      - else
-        %article.form-field
-          = f.password_field :current_password, hide_label: true, placeholder: 'current password'
-        %article.form-field
-          = f.password_field :new_password, hide_label: true, placeholder: 'new password'
-        %article.form-field
-          = f.password_field :new_password_confirmation, hide_label: true, placeholder: 'confirm new password'
-
-      %article.form-field
-        - if @user.new_record?
-          = f.submit 'Submit'
-        - else
-          = f.submit 'Update'

@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
       expect(@user.verified?(id - 1)).to be_falsy
     end
 
-    it 'will sort orders by updated_at' do 
+    it 'will sort orders by updated_at' do
       @user = create(:user_with_orders)
       @user.orders << create(:order_with_items)
 

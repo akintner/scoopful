@@ -7,7 +7,7 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'associations' do 
-   it { should respond_to(:items) }
+    it { should respond_to(:items) }
   end
 
   it 'makes pretty params' do

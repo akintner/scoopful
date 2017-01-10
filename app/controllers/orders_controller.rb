@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   def show
     @order      = Order.find(params[:id])
     @head_title = " | #{@order.id}"
-    
+
     redirect_to dashboard_path unless @order.verified_user?(current_user)
   end
 

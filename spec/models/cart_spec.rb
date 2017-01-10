@@ -104,4 +104,13 @@ RSpec.describe Cart, type: :model do
       expect(@cart.contents[@item.id.to_s]).to be nil
     end
   end
+  
+  context 'item quantity processing' do
+    it 'processes a positive value' do
+      @cart.add_item(@item.id)
+      @cart.process_item_quantity(@item.id, 2)
+
+      expect(@cart.contents[@item.id.to_s]).to eq(2)
+    end
+  end
 end

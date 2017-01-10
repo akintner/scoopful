@@ -8,3 +8,5 @@
     %p= @item.category.title
     .item-button
       = item_status_check(@item)
+      %p= link_to "All Items", items_path 
+      %p= link_to "All #{@item.category.title}", category_path(@item.category)

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'splash#index'
+  root to: 'splash#home'
 
   namespace :api do
     namespace :v1 do

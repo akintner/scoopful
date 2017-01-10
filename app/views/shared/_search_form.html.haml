@@ -1,0 +1,4 @@
+= search_form_for @q do |f|
+  = f.label 'Looking for something?'
+  = f.search_field :name_or_description_or_category_title_cont
+  = f.submit

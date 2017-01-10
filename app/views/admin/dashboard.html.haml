@@ -1,15 +1,8 @@
-%section.admin-dashboard
-  %h1 Admin Dashboard
-  %section.admin-welcome
-    %article.user-info
-      %strong= "Name: #{current_user.name}"
-      %br
-      %strong= "Email: #{current_user.email}"
-    = link_to('Update Profile Information', edit_user_path(current_user))
+%section.users-dashboard
+  %h2 Admin Dashboard
+  = render partial: 'shared/user_info'
 
+%hr
+= link_to "View All Items", admin_items_path, class: "dashboard-button"
 
-  %hr
-  = link_to "View All Items", admin_items_path
-
-  %hr
-    = render partial: 'admin/admin-orders'
+= render partial: 'admin/admin-orders' 

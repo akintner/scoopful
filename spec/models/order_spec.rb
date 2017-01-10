@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Order, type: :model do
   before do
+    @user  = create(:user_with_orders)
+    @user2 = create(:user)
     @order = create(:order)
+    @user_order  = @user.orders.first
+
     @order_with_items = create(:order_with_items)
     @item = @order_with_items.items.first
     @order_item = @order_with_items.orders_items.first
@@ -54,5 +58,33 @@ RSpec.describe Order, type: :model do
 
   it 'returns the quantity of an order item' do
     expect(@order_with_items.order_item_quantity(@item)).to eq @order_item.quantity
+  end
+
+  it 'returns AR collection of orders by status' do
+    result = Order.by_status(:ordered)
+
+    expect(result.class.to_s).to eq 'Order::ActiveRecord_Relation'
+    expect(result.first.updated_at).to be > result[1].updated_at
+  end
+
+  context 'user verification' do 
+    it 'accepts verified user' do
+      result = @user_order.verified_user?(@user)
+
+      expect(result).to be true
+    end
+
+    it 'rejects invalid user' do
+      result = @user_order.verified_user?(@user2)
+
+      expect(result).to be false
+    end
+
+    it 'accepts admin' do
+      admin  = create(:user, role: 1)
+      result = @user_order.verified_user?(admin)
+
+      expect(result).to be true
+    end
   end
 end

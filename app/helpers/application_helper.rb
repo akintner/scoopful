@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def format_price_per_unit(item)
-    "#{number_to_currency(price_for(item))} / lb "
+    "#{number_to_currency(price_for(item))} / lb"
   end
 
   def price_for(item)
@@ -22,6 +22,6 @@ module ApplicationHelper
   end
 
   def active_search?
-    @q && @q.conditions.any? && @items 
+    @q && @q.conditions.any? && @items
   end
 end

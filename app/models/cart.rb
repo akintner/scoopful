@@ -36,7 +36,7 @@ class Cart
   end
 
   def update_item(cart_params)
-    id       = cart_params['item_id'].to_s
+    id       = cart_params['item_id']
     quantity = cart_params['quantity'].to_i
 
     process_item_quantity(id, quantity)
@@ -44,6 +44,6 @@ class Cart
 
   def process_item_quantity(id, quantity)
     return remove(id) if quantity <= 0
-    contents[id] = quantity
+    contents[id.to_s] = quantity
   end
 end

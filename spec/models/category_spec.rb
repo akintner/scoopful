@@ -6,6 +6,10 @@ RSpec.describe Category, type: :model do
       it { should validate_uniqueness_of(:title) }
   end
 
+  describe 'associations' do 
+   it { should respond_to(:items) }
+  end
+
   it 'makes pretty params' do
     category = create(:category, title: '1 Title')
     expect(category.to_param).to eq("1-title")

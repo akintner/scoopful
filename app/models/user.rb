@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def verified?(params_id)
     id == params_id.to_i
   end
+
+  def sorted_orders
+    orders.order('updated_at DESC')
+  end
 end

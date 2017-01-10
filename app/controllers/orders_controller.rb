@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :require_admin, only: [:update]
 
   def index
-    @orders     = current_user.orders.order('updated_at DESC')
+    @orders     = current_user.sorted_orders
     @head_title = ' | Orders'
   end
 

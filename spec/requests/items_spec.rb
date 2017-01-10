@@ -13,7 +13,7 @@ describe "Items API" do
   it "sends the most popular item by quantity" do
     item1, item2 = create_list(:item, 2)
     order = create(:order)
-    order.checkout({item1.id.to_s => 2, item2.id.to_s => 1})
+    Checkout.new({item1.id.to_s => 2, item2.id.to_s => 1}).submit(order)
     get api_v1_most_popular_path
 
     most_popular = JSON.parse(response.body)

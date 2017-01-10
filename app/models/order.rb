@@ -21,16 +21,6 @@ class Order < ApplicationRecord
     order_item(item).quantity
   end
 
-  def checkout(cart)
-    cart.each do |item_id, quantity|
-      orders_items.create(
-        item_id: item_id.to_i, 
-        quantity: quantity.to_i, 
-        current_price_per_unit: Item.find(item_id).price_per_unit
-      )
-    end
-  end
-
   def self.by_status(status)
     orders = Order.send(status) rescue Order.all
     orders.order('updated_at DESC')

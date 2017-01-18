@@ -46,7 +46,7 @@ RSpec.feature do
       click_on 'Remove'
 
       click_on @item1.name
-      expect(current_path).to eq items_path
+      expect(current_path).to eq item_path(@item1)
     end
   end
 end

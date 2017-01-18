@@ -18,7 +18,6 @@ Follow these steps to run tests or host the site locally.
 1. To get started make sure you have postgres, Ruby, and rails 5  (`gem install rails`) installed on your machine.
 1. Clone the repository: `git clone https://github.com/kheppenstall/idea_box.git`
 1. `cd` into the directory `scoopful` and `bundle install` in the command line.
-1. Run `rake db:create` and `rake db:migrate` in the command line to get your schema up to date.
-1. Run `rake db:test:prepare` in the command line.
+1. Run `rake db:create`,  `rake db:migrate`, `rake db:test:prepare`  and in the command line to get your schema up to date.
 1. Run `rspec` in the command line to run the tests.
 1. Run `rails s` in the command line to host the site locally and visit http://localhost:3000/ to check it out!

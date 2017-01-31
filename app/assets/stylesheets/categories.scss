@@ -1,0 +1,72 @@
+.categories-show-container {
+  width: 100%;
+  h1 {
+    font-size: 36px;
+    padding: 20px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .category-header {
+    background: $gray;
+    width: 100%;
+  }
+  .item-card {
+    .item-card-image {
+      text-align: center;
+      img {
+        width: 98%;
+      }
+    }
+    .item-info {
+      margin: 10px;
+      aside {
+        display: inline-block;
+        width: 24%;
+      }
+      .item-title {
+        width: 44%;
+      }
+      .item-price {
+        width: 44%;
+      }
+    }
+    .item-description {
+      margin: 10px;
+    }
+    .item-card-button {
+      text-align: center;
+      button {
+        margin-bottom: 10px;
+        width: 95%;
+        background: $lightbrown;
+        color: $black;
+        border: 1px transparent;
+        border-radius: 5px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 50px;
+    }
+    .categories-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-flow: row wrap;
+      .item-card-button {
+        width: 33%;
+      }
+      .item-card {
+        width: 30%;
+        img {
+          max-height: 500px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.orders-container
+  %h3 Your Orders
+  - @orders.each do |order|
+    .order
+      .order-info
+        %p <strong>Total:</strong> #{number_to_currency(order.total_price)} 
+        %p <strong>Submitted:</strong> #{order.created_at}
+        %p <strong>Status:</strong> #{order.status}, #{order.updated_at}
+        %p <strong>Order ID:</strong> #{order.id}
+      .order-button
+        = link_to 'Order Details', order_path(order), class: 'btn'

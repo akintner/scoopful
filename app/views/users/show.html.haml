@@ -1,0 +1,6 @@
+%section.users-dashboard
+  %h2= "Welcome, #{current_user.first_name}!"
+  = render partial: 'shared/user_info'
+%hr
+
+= link_to "View Past Orders", orders_path, class: "dashboard-button"

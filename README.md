@@ -1,24 +1,15 @@
-# README
+# Scoopful
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Production Site](https://scoopful.herokuapp.com)
 
-Things you may want to cover:
+Scoops to Stoop: bringing the bulk aisle right to your front step. 
 
-* Ruby version
+Eliminate food waste by ordering as much or as little as you need of an ingredient. 
 
-* System dependencies
+## Possible Extensions
+Show recipies by items ordered or order all items for a reciepe. Multiple units, such as by volume or handful. Change currency of order. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Project Manager 
+Amy Kintner
+#### Project Members
+Mike Schutte, Kyle Heppenstall, Annie Wolff

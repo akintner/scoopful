@@ -1,0 +1,19 @@
+.admin-items-container
+  %h1 All Items
+  %hr
+  %section.admin-items-table
+    %table
+      %tr
+        %th Picture
+        %th Name
+        %th Description
+        %th Status
+        %th
+      - @items.each do |item|
+        %tr
+          %td.image-column
+            %img{'src' => item.image_url, 'alt' => item.name, 'class' => 'img-responsive'}
+          %td= link_to item.name, item_path(item)
+          %td= item.description
+          %td= item.status
+          %td= link_to "Edit", edit_admin_item_path(item), class: 'edit'

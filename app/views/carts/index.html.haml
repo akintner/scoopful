@@ -1,0 +1,28 @@
+.cart-container
+  .cart-header
+    %h3 Items in Cart:
+    .checkout-link
+      - if current_user
+        = link_to('Check out Cart', orders_path, :method => :post)
+      - else
+        = link_to('Log in or Register to Check out', login_path)
+
+  %ul.cart-list
+    - @items.each do |item|
+      %li.cart-item
+        .img-container
+          %img{ :src => "#{ item.image_url }", :alt => "item.name", :class => "img-responsive" }
+        %section.info
+          %h2= item.name
+          %p= item.description
+          %p= format_price_per_unit(item)
+          %p= label_tag :quantity, 'Quantity:'
+          = form_tag :carts, method: :put do
+            = hidden_field_tag :item_id, item.id
+            = number_field_tag :quantity, @cart.count_of(item.id)
+            = submit_tag "Update"
+          %p= "Subtotal: #{number_to_currency(@cart.subtotal_of(item.id))}"
+          = button_to "Remove", carts_path(item_id: item.id), method: :delete
+      %hr
+  %section.cart-total
+    %h3= "Total Price: #{number_to_currency(@cart.total_price)}"

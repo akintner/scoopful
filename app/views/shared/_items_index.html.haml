@@ -1,0 +1,21 @@
+%article.search
+  = render partial: 'shared/search_form' if @q
+
+- if active_search?
+  %article.category-header
+    %h2
+      = "Results for \"#{@q.conditions.first.values.first.value}\""
+  %article.items-container
+    - if @items.any?
+      = render partial: 'shared/items', locals: { items: @items }
+
+    - else
+      %h3 Sorry, no results found.
+
+- else
+  - @categories.each do |category|
+    %article.category-header
+      %h1
+        = category.title
+    %article.items-container
+      = render partial: 'shared/items', locals: { items: category.items }

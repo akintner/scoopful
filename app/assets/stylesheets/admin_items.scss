@@ -1,0 +1,49 @@
+.admin-items-container {
+  margin: 20px;
+  h1 {
+    font-size: 16px;
+  }
+  .admin-items-table {
+    table {
+      font-size: 10px;
+      th {
+        font-weight: bold;
+        border-bottom: 2px black solid;
+        padding: 2px;
+      }
+      td {
+        padding: 2px;
+      }
+      .image-column {
+        width: 30px;
+      }
+      .edit {
+        padding: 5px;
+        border: none;
+        font-size: 12px;
+        border-radius: 5px;
+        color: whitesmoke;
+        background-color: rgba(71, 132, 114, 0.7);
+      }
+      .edit:hover {
+        background-color: rgba(71, 132, 114, 1);
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .admin-items-table {
+      table {
+        font-size: 16px;
+        th {
+          padding: 5px;
+        }
+        td {
+          padding: 5px;
+        }
+        .image-column {
+          width: 75px;
+        }
+      }
+    }
+  }
+}

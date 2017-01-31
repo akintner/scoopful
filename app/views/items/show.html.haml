@@ -1,0 +1,12 @@
+.item-container
+  .item-image
+    %img{:src => @item.image, :alt => @item.name, :class => "img-responsive" }
+  .item-info
+    %h1= @item.name
+    %h3= @item.description
+    %p= format_price_per_unit(@item)
+    %p= @item.category.title
+    .item-button
+      = item_status_check(@item)
+      %p= link_to "All Items", items_path 
+      %p= link_to "All #{@item.category.title}", category_path(@item.category)

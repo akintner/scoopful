@@ -1,0 +1,8 @@
+%section.users-dashboard
+  %h2 Admin Dashboard
+  = render partial: 'shared/user_info'
+
+%hr
+= link_to "View All Items", admin_items_path, class: "dashboard-button"
+
+= render partial: 'admin/admin-orders' 

@@ -1,0 +1,55 @@
+.users-dashboard {
+  background: $gray;
+  margin: 15px;
+  border-radius: 3px;
+  h2 {
+    font-size: 24px;
+    margin: 10px;
+    padding-top: 10px;
+  }
+  .users-welcome {
+    article {
+      margin: 10px;
+    }
+    display: inline;
+    padding: 20px;
+    .user-name {
+      width: 30%;
+    }
+    .user-email {
+      width: 30%;
+    }
+    .edit-link {}
+  }
+}
+
+@media (min-width: 768px) {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
+  h1 {
+    font-size: 50px;
+  }
+  .item-image {
+    width: 33%;
+    height: auto;
+  }
+}
+
+.dashboard-button {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  color: whitesmoke;
+  background-color: rgba(71, 132, 114, 0.7);
+}
+
+.dashboard-button:hover {
+  color: whitesmoke;
+  background-color: rgba(71, 132, 114, 1);
+  text-decoration: none;
+}
